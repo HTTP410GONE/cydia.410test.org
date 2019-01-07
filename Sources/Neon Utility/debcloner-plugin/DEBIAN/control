@@ -1,0 +1,10 @@
+Architecture: iphoneos-arm
+Name: [NeonUtil] Debian Cloner
+Package: com.nvtechnology.neonutil-debcloner
+Version: 1000
+Author: HTTP410GONE <hysong0129@gmail.com>
+Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
+Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-interface, com.nvtechnology.neonutil-core, com.nvtechnology.neonutil-debextractor
+Description: Maintenance utility plugin.
+Depiction: https://nvtechkorea.github.io/cydia/depictions/?p=com.nvtechnology.neonutil-debcloner
+Section: Neon Utility

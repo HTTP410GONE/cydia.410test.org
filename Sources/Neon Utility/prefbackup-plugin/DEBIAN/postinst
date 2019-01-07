@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ ! -e "/lib410/Resources/neon/BackupStorage" ]; then
+	echo "Backup storage does not exist. Making one..."
+	mkdir /lib410/Resources/neon/BackupStorage
+else
+	echo "Backup storage already exists. No need to make one."
+fi

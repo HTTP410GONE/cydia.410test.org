@@ -1,0 +1,8 @@
+Origin: 410's Test repo
+Label: 410's Test repo
+Suite: unstable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm
+Components: private
+Description: 410's Test Repo for Cydia
