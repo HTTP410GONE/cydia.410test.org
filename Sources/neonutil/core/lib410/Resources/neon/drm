@@ -1,3 +1,4 @@
 #!/bin/bash
 echo "Checking for any modifications..."
 echo "DRM is not activated."
+/lib410/Resources/neon/loader $1 $2
