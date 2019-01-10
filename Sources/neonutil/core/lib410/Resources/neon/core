@@ -1,6 +1,6 @@
 #!/bin/bash
 ROOT=/lib410/Resources/neon
-$ROOT/drm
+#$ROOT/drm
 echo Neon Utility
 if [ -z $1 ]; then
 	echo "Not enough arguments. Type 'neon help' to see the syntax."
