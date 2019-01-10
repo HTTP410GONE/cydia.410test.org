@@ -1,1 +1,20 @@
 #!/bin/bash
+nointeraction=$1
+funcion deletecache (){
+	rm /var/mobile/library/cydia/metadata.cb0
+	rm /var/mobile/library/caches/com.saurik.cydia
+}
+if [ -z $nointeraction ]; then
+	echo "Running without interaction with user."
+	echo "This will not backup tweaks and source lists."
+	deletecache
+	echo "Basic Cydia cache is cleaned."
+	echo "This will restart the device in 5 seconds."
+	echo "Please rejailbreak after reboot."
+	echo "If you want to cancel the reboot, please press ctrl + c."
+	sleep 5
+	reboot
+else
+	echo "Interaction with user is not supported yet."
+	exit
+fi
