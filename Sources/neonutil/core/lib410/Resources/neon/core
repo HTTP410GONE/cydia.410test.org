@@ -1,0 +1,11 @@
+#!/bin/bash
+ROOT=/lib410/Resources/neon
+$ROOT/drm
+echo Neon Utility
+if [ -z $1 ]; then
+	echo "Not enough arguments. Type 'neon help' to see the syntax."
+	exit
+elif [ $1 == "help" ]; then
+	$ROOT/syntax-core
+elif [ $1 == "backup" ]; then
+	

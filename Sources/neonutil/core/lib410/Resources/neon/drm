@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Checking for any modifications..."
+echo "DRM is not activated."

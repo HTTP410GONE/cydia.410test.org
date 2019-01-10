@@ -1,0 +1,10 @@
+Architecture: iphoneos-arm
+Name: Neon Utility Core
+Package: com.nvtechnology.neonutil-core
+Version: 1000
+Author: HTTP410GONE <hysong0129@gmail.com>
+Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
+Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-interface, com.nvtechnology.neonutil-coresyntax
+Description: Maintenance utility core.
+Depiction: https://nvtechkorea.github.io/cydia/depictions/?p=com.nvtechnology.neonutil-core
+Section: Neon Utility

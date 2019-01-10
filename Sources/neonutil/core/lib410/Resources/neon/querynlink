@@ -1,0 +1,4 @@
+#!/bin/bash
+execute=$1
+args=$2
+interaction=$3
