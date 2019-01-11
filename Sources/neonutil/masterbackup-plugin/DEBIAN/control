@@ -4,7 +4,7 @@ Package: com.nvtechnology.neonutil-masterbackup
 Version: 1000
 Author: HTTP410GONE <hysong0129@gmail.com>
 Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
-Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-interface, com.nvtechnology.neonutil-core, com.nvtechnology.neonutil-debbackup, com.nvtechnology.neonutil-prefbackup
+Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-interface, com.nvtechnology.neonutil-core, com.nvtechnology.neonutil-debbackup, com.nvtechnology.neonutil-prefbackup, zip
 Description: Maintenance utility plugin.
 Depiction: https://nvtechkorea.github.io/cydia/depictions/?p=com.nvtechnology.neonutil-masterbackup
 Section: Neon Utility

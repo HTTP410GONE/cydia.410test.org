@@ -1,4 +1,7 @@
 #!/bin/bash
+if [ ! -e /lib410/Resources/neon/temp/pref-backup ]; then
+	mkdir /lib410/Resources/neon/temp/pref-backup
+fi
 name=$1
 interaction=$2
 if [[ $interaction ]]; then
@@ -9,7 +12,7 @@ if [[ $interaction ]]; then
 			echo "2/5: Unpacking backup file..."
 			unzip -rqq /lib410/Resources/neon/temp/pref-backup/backup.zip
 			echo "3/5: Overwriting..."
-			cp /lib410/Resources/neon/temp/pref-backup/* /private/var/mobile/Library/Preferences
+			cp /lib410/Resources/neon/temp/pref-backup/Preferences/* /private/var/mobile/Library/Preferences
 			echo "4/5: Cleaning up..."
 			/lib410/Resources/neon/cleanup pref
 			echo "5/5: Respring in 5 seconds..."
@@ -33,7 +36,7 @@ else
 		echo "2/5: Unpacking backup file..."
 		unzip -rqq /lib410/Resources/neon/temp/pref-backup/backup.zip
 		echo "3/5: Overwriting..."
-		cp /lib410/Resources/neon/temp/pref-backup/* /private/var/mobile/Library/Preferences
+		cp /lib410/Resources/neon/temp/pref-backup/Preferences/* /private/var/mobile/Library/Preferences
 		echo "4/5: Cleaning up..."
 		/lib410/Resources/neon/cleanup pref
 		echo "5/5: Respring in 5 seconds..."

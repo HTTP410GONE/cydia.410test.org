@@ -2,25 +2,29 @@
 STORAGE=/private/var/mobile/neonutil_backups
 echo "DEB Backups---------------"
 if [ -e /private/var/mobile/neonutil_backups/*.ndebbackup ]; then
-	ls /private/var/mobile/neonutil_backups/*.ndebbackup
+	cd /private/var/mobile/neonutil_backups/
+	ls *.ndebbackup
 else
 	echo "  No backups."
 fi
 echo "Preference Backups--------"
 if [ -e /private/var/mobile/neonutil_backups/*.nprefbackup ]; then
-	ls /private/var/mobile/neonutil_backups/*.nprefbackup
+	cd /private/var/mobile/neonutil_backups/
+	ls *.nprefbackup
 else
 	echo "  No backups."
 fi
 echo "Source List Backups-------"
 if [ -e /private/var/mobile/neonutil_backups/*.nsrcbackup ]; then
-	ls /private/var/mobile/neonutil_backups/*.nsrcbackup
+	cd /private/var/mobile/neonutil_backups/
+	ls *.nsrcbackup
 else
 	echo "  No backups."
 fi
 echo "Master Backups------------"
 if [ -e /private/var/mobile/neonutil_backups/*.nmasbackup ]; then
-	ls /private/var/mobile/neonutil_backups/*.nmasbackup
+	cd /private/var/mobile/neonutil_backups/
+	ls *.nmasbackup
 else
 	echo "  No backups."
 fi

@@ -1,0 +1,49 @@
+#!/bin/bash
+if [ ! -e /lib410/Resources/neon/temp/src-backup ]; then
+	mkdir /lib410/Resources/neon/temp/src-backup
+fi
+name=$1
+interaction=$2
+if [[ $interaction ]]; then
+	if [[ $name ]]; then
+		if [ -e /private/var/mobile/neonutil_backups/$name.nsrcbackup ]; then
+			echo "1/5: Copying backup file..."
+			cp /private/var/mobile/neonutil_backups/$name.nsrcbackup /lib410/Resources/neon/temp/src-backup/backup.zip
+			echo "2/5: Unpacking backup file..."
+			unzip -rqq /lib410/Resources/neon/temp/src-backup/backup.zip
+			echo "3/5: Overwriting..."
+			cp /lib410/Resources/neon/temp/src-backup/sources.list.d/* /etc/apt/sources.list.d/
+			echo "4/5: Cleaning up..."
+			/lib410/Resources/neon/cleanup src
+			echo "5/5: Respring in 5 seconds..."
+			killall SpringBoard
+		else
+			echo "Error:"
+			echo "Process restore_source returned error."
+			echo "No such backup found."
+		fi
+	else
+		echo "Error:"
+		echo "Process restore_source returned error."
+		echo "--nointeraction option requires second argument, which is the name of the backup."
+	fi
+else
+	echo "What is the name of the backup?"
+	read name
+	if [ -e /private/var/mobile/neonutil_backups/$name.nprefbackup ]; then
+		echo "1/5: Copying backup file..."
+		cp /private/var/mobile/neonutil_backups/$name.nsrcbackup /lib410/Resources/neon/temp/src-backup/backup.zip
+		echo "2/5: Unpacking backup file..."
+		unzip -rqq /lib410/Resources/neon/temp/src-backup/backup.zip
+		echo "3/5: Overwriting..."
+		cp /lib410/Resources/neon/temp/src-backup/sources.list.d/* /etc/apt/sources.list.d/
+		echo "4/5: Cleaning up..."
+		/lib410/Resources/neon/cleanup src
+		echo "5/5: Respring in 5 seconds..."
+		killall SpringBoard
+	else
+		echo "Error:"
+		echo "Process restore_source returned error."
+		echo "No such backup found."
+	fi
+fi
