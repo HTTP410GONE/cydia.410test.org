@@ -58,7 +58,7 @@ elif [ $execute == "-restore-src" ]; then
 	else
 		$ROOT/restore_source $args $interaction $coredirect
 	fi
-elif [ $execute == "-list" ]; then
+elif [ $execute == "-listbackups" ]; then
 	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-backuplist") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
