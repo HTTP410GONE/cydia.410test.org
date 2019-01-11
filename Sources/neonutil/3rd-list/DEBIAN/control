@@ -1,5 +1,5 @@
 Architecture: iphoneos-arm
-Name: [NeonUtil] List Backups
+Name: [NeonUtil] (Ext) List Backups
 Package: com.nvtechnology.neonutil-backuplist
 Version: 1000
 Author: HTTP410GONE <hysong0129@gmail.com>
