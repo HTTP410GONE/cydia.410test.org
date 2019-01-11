@@ -32,16 +32,12 @@ function usage()
                ;;
         esac
 }
-function prtok()
-{
-
-}
 export REDEB="/lib410/Resources/neon/temp/deb-backup"
 if [ -d "$REDEB" ];
   FALSE="false"
 else
     mkdir -p $REDEB
-    prtok
+    
 fi
 exec > >(tee /lib410/Resources/neon/temp/deb-backup-log/extractionengine.log)
 exec 2>/lib410/Resources/neon/temp/deb-backup-log/extractionengine.err
@@ -59,14 +55,14 @@ export DebsFolder="/lib410/Resources/neon/temp/deb-backup/"
 if [ -d "$DebsFolder" ]; then
     else
         mkdir -p $DebsFolder
-        prtok
+        
 fi
 sleep 1
 if [ -d "$ROOTDIR" ]; then
   FALSE="false"
    else
         mkdir -pv $ROOTDIR
-        prtok
+        
 fi
 sleep 1
 if [ -d "$ROOTDIR"/DEBIAN/ ]; then
@@ -101,7 +97,7 @@ do
     cp -p $i $newfilepath
    fi
 done
-prtok
+
 sleep 1
 
 if [[ -d "$ROOTDIR"/DEBIAN && -f "$ROOTDIR"/DEBIAN/control ]]; then
@@ -109,8 +105,7 @@ sleep 1
 fi
 sleep 2
 dpkg-deb -bZgzip $ROOTDIR $DebsFolder
-prtok
+
 if [[ -f "$DebsFolder"/"$DEB" && -d "$ROOTDIR" ]];then
   rm -r $ROOTDIR
 fi
-prtok

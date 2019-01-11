@@ -30,7 +30,7 @@ elif [ $OPTION == "9" ]; then
 	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-cydiafixer") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
-		$ROOT/cydiafixer $interaction
+		$ROOT/cydiafixer --nointeraction
 	fi
 elif [ $OPTION == "4" ]; then
 	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-masterbackup") ]]; then
