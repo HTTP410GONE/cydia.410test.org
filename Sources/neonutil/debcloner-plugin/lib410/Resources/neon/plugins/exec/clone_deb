@@ -10,7 +10,7 @@ for ((i=0; i<total; i++)) do
 	previousVal=0
 	percent=$(awk "BEGIN { pc=100*${i}/${total}; i=int(pc); print (pc-i<0.5)?i:i+1 }")
 	if [ $percent != $previousVal ]; then
-		echo "Extraction: "$percent"%"
+		echo "  Extraction: "$percent"%"
 		previousVal=$percent
 	fi
 done

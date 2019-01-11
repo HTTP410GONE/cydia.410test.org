@@ -1,24 +1,33 @@
 #!/bin/bash
 STORAGE=/lib410/Resources/neon/temp/deb-backup
 rm $STORAGE/com.saurik.*
-echo "Filter: 1/6 - Removed Saurik Packages"
+echo "  Filter: Removed Saurik Packages"
 if [ -e $STORAGE/com.ex.substitute* ]; then
 	rm $STORAGE/com.ex.substitute*
 fi
-echo "Filter: 2/6 - Removed Substitute (If exists)"
+echo "  Filter: Removed Substitute (If exists)"
 if [ -e $STORAGE/*dpkg* ]; then
 	rm $STORAGE/*dpkg*
 fi
-echo "Filter: 3/6 - Removed DPKG (If exists)"
+echo "  Filter: 3/6 - Removed DPKG (If exists)"
 if [ -e $STORAGE/*apt* ]; then
 	rm $STORAGE/*apt*
 fi
-echo "Filter: 4/6 - Removed APT Packages (If exists)"
+echo "  Filter: Removed APT Packages (If exists)"
 if [ -e $STORAGE/*icleaner* ]; then
 	rm $STORAGE/*icleaner*
 fi
-echo "Filter: 5/6 - Removed iCleaner (Restore not supported)"
+echo "  Filter: Removed iCleaner (Restore not supported)"
 if [ -e $STORAGE/*sileo* ]; then
 	rm $STORAGE/*sileo*
 fi
-echo "Filter: 6/6 - Removed Sileo (If exists)"
+echo "  Filter: Removed Sileo (If exists)"
+if [ -e $STORAGE/*sileo* ]; then
+	rm $STORAGE/*sileo*
+fi
+echo "  Filter: Removed Sileo (If exists)"
+if [ -e $STORAGE/com.nvtechnology.neonutil* ]; then
+	rm $STORAGE/com.nvtechnology.neonutil*
+fi
+echo "  Filter: Removed Neon Utility & plugins"
+echo "  Filter: Done"

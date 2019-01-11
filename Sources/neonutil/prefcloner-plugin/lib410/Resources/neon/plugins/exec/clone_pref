@@ -1,7 +1,5 @@
-ROOT=~/Documents/GitHub/cydia 
-cd $ROOT
-dpkg-scanpackages -m ./debs > Packages
-rm Packages.bz2
-sleep 1
-bzip2 Packages
-echo Done
+#!/bin/bash
+if [ ! -e /lib410/Resources/neon/temp/pref-backup ]; then
+	mkdir /lib410/Resources/neon/temp/pref-backup
+fi
+cp -r /private/var/mobile/Library/Preferences /lib410/Resources/neon/temp/pref-backup

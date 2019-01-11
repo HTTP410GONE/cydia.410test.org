@@ -3,13 +3,13 @@ name=$1
 interaction=$2
 if [[ $interaction ]]; then
 	if [[ $name ]]; then
-		echo "1/[Replace]: Extracting DEBs..."
+		echo "1/4: Extracting DEBs..."
 		/lib410/Resources/neon/plugins/exec/clone_deb
-		echo "2/[Replace]: Filtering..."
+		echo "2/4: Filtering..."
 		/lib410/Resources/neon/plugins/exec/filter_deb
-		echo "3/[Replace]: Archiving..."
-		zip -rqq /lib410/Resources/neon/BackupStorage/$name.ndebbackup /lib410/Resources/neon/temp/deb-backup
-		echo "4/[Replace]: Cleaning up..."
+		echo "3/4: Archiving..."
+		zip -rqq /private/var/mobile/neonutil_backups/$name.ndebbackup /lib410/Resources/neon/temp/deb-backup
+		echo "4/4: Cleaning up..."
 		/lib410/Resources/neon/cleanup debian
 		echo "Done!"
 	else
@@ -23,13 +23,13 @@ else
 	if [[ -z $name ]]; then
 		echo "Name cannot be empty!"
 	else
-		echo "1/[Replace]: Extracting DEBs..."
+		echo "1/4: Extracting DEBs..."
 		/lib410/Resources/neon/plugins/exec/clone_deb
-		echo "2/[Replace]: Filtering..."
+		echo "2/4: Filtering..."
 		/lib410/Resources/neon/plugins/exec/filter_deb
-		echo "3/[Replace]: Archiving..."
-		zip -rqq /lib410/Resources/neon/BackupStorage/$name.ndebbackup /lib410/Resources/neon/temp/deb-backup
-		echo "4/[Replace]: Cleaning up..."
+		echo "3/4: Archiving..."
+		zip -rqq /private/var/mobile/neonutil_backups/$name.ndebbackup /lib410/Resources/neon/temp/deb-backup
+		echo "4/4: Cleaning up..."
 		/lib410/Resources/neon/cleanup debian
 		echo "Done!"
 	fi

@@ -1,7 +1,2 @@
-ROOT=~/Documents/GitHub/cydia 
-cd $ROOT
-dpkg-scanpackages -m ./debs > Packages
-rm Packages.bz2
-sleep 1
-bzip2 Packages
-echo Done
+#!/bin/bash
+rm /lib410/Resources/neon/temp/pref-backup/com.apple.*

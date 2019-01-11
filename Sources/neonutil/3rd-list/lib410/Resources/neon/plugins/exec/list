@@ -1,23 +1,23 @@
 #!/bin/bash
-STORAGE=/lib410/Resources/neon/BackupStorage
+STORAGE=/private/var/mobile/neonutil_backups
 echo "DEB Backups---------------"
-if [ -e /lib410/Resources/neon/BackupStorage/*.ndebbackup ]; then
-	ls /lib410/Resources/neon/BackupStorage/*.ndebbackup
+if [ -e /private/var/mobile/neonutil_backups/*.ndebbackup ]; then
+	ls /private/var/mobile/neonutil_backups/*.ndebbackup
 else
 	echo "  No backups."
 echo "Preference Backups--------"
-if [ -e /lib410/Resources/neon/BackupStorage/*.nprefbackup ]; then
-	ls /lib410/Resources/neon/BackupStorage/*.nprefbackup
+if [ -e /private/var/mobile/neonutil_backups/*.nprefbackup ]; then
+	ls /private/var/mobile/neonutil_backups/*.nprefbackup
 else
 	echo "  No backups."
 echo "Source List Backups-------"
-if [ -e /lib410/Resources/neon/BackupStorage/*.nsrcbackup ]; then
-	ls /lib410/Resources/neon/BackupStorage/*.nsrcbackup
+if [ -e /private/var/mobile/neonutil_backups/*.nsrcbackup ]; then
+	ls /private/var/mobile/neonutil_backups/*.nsrcbackup
 else
 	echo "  No backups."
 echo "Master Backups------------"
-if [ -e /lib410/Resources/neon/BackupStorage/*.nmasbackup ]; then
-	ls /lib410/Resources/neon/BackupStorage/*.nmasbackup
+if [ -e /private/var/mobile/neonutil_backups/*.nmasbackup ]; then
+	ls /private/var/mobile/neonutil_backups/*.nmasbackup
 else
 	echo "  No backups."
 echo "--------------------------"
