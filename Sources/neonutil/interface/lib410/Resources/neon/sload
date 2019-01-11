@@ -1,4 +1,5 @@
 #!/bin/bash
+ROOT=/lib410/Resources/neon/plugins/exec
 OPTION=$1
 args=$2
 if [ $OPTION == "1" ]; then

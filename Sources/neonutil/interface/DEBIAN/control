@@ -5,6 +5,6 @@ Version: 1000
 Author: HTTP410GONE <hysong0129@gmail.com>
 Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
 Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-core
-Description: Maintenance utility plugin.
+Description: Maintenance utility user interface.
 Depiction: https://nvtechkorea.github.io/cydia/depictions/?p=com.nvtechnology.neonutil-interface
 Section: Neon Utility
