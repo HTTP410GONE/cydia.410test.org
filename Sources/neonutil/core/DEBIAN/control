@@ -5,7 +5,6 @@ Version: 1000
 Author: HTTP410GONE <hysong0129@gmail.com>
 Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
 Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-interface, com.nvtechnology.neonutil-coresyntax
-Conflicts: org.coolstar.sileo
 Description: Maintenance utility core.
 Depiction: https://nvtechkorea.github.io/cydia/depictions/?p=com.nvtechnology.neonutil-core
 Section: Neon Utility
