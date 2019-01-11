@@ -35,12 +35,7 @@ elif [ $1 == "restore-pref" ]; then
 		$ROOT/querynlink -restore-pref $2 --nointeraction --coredirect
 	fi
 elif [ $1 == "cydiafix" ]; then
-	if [ -z $2 ]; then
-		echo "Not enough arguments. Type 'neon help' to see the syntax."
-		exit
-	else
-		$ROOT/querynlink -cydiafix $2 --nointeraction --coredirect
-	fi
+	$ROOT/querynlink -cydiafix --nointeraction
 elif [ $1 == "backup-m" ]; then
 	if [ -z $2 ]; then
 		echo "Not enough arguments. Type 'neon help' to see the syntax."
