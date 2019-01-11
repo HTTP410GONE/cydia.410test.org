@@ -1,2 +1,2 @@
 #!/bin/bash
-rm /lib410/Resources/neon/temp/pref-backup/com.apple.*
+rm /lib410/Resources/neon/temp/pref-backup/Preferenfes/com.apple.*
