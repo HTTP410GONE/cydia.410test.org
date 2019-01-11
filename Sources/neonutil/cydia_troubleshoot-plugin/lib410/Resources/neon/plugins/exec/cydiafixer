@@ -1,13 +1,18 @@
 #!/bin/bash
 nointeraction=$1
-funcion deletecache{
-	rm /var/mobile/library/cydia/metadata.cb0
-	rm /var/mobile/library/caches/com.saurik.cydia
-}
 if [ -z $nointeraction ]; then
 	echo "Running without interaction with user."
 	echo "This will not backup tweaks and source lists."
-	deletecache
+	if [ -e /var/mobile/library/cydia/metadata.cb0 ]; then
+		rm /var/mobile/library/cydia/metadata.cb0
+	else
+		echo "metadata.cb0 not found."
+	fi
+	if [ -e /var/mobile/library/caches/com.saurik.cydia ]; then
+		rm /var/mobile/library/caches/com.saurik.cydia
+	else
+		echo "Cache not found."
+	fi
 	echo "Basic Cydia cache is cleaned."
 	echo "This will restart the device in 5 seconds."
 	echo "Please rejailbreak after reboot."
