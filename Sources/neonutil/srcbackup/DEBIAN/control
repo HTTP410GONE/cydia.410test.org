@@ -1,10 +1,10 @@
 Architecture: iphoneos-arm
 Name: [NeonUtil] Source List Backup
-Package: com.nvtechnology.neonutil-srcbackup
+Package: com.nvtechnology.neonutil-sourcebackup
 Version: 1000
 Author: HTTP410GONE <hysong0129@gmail.com>
 Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
 Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-interface, com.nvtechnology.neonutil-core, zip
 Description: Maintenance utility plugin.
-Depiction: https://nvtechkorea.github.io/cydia/depictions/?p=com.nvtechnology.neonutil-srcbackup
+Depiction: https://nvtechkorea.github.io/cydia/depictions/?p=com.nvtechnology.neonutil-sourcebackup
 Section: Neon Utility

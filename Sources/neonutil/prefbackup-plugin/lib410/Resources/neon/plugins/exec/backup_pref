@@ -1,4 +1,7 @@
 #!/bin/bash
+if [ ! -e /lib410/Resources/neon/temp/pref-backup ]; then
+	mkdir /lib410/Resources/neon/temp/pref-backup
+fi
 name=$1
 interaction=$2
 echo "This will only backup tweak setups in /var/mobile/Library/Preferences."

@@ -1,9 +1,7 @@
 #!/bin/bash
-if [ ! -e /lib410/Resources/neon/temp/pref-backup ]; then
-	mkdir /lib410/Resources/neon/temp/pref-backup
-fi
 name=$1
 interaction=$2
+doRespring=$3
 if [[ $interaction ]]; then
 	if [[ $name ]]; then
 		if [ -e /private/var/mobile/neonutil_backups/$name.nprefbackup ]; then
@@ -15,8 +13,12 @@ if [[ $interaction ]]; then
 			cp /lib410/Resources/neon/temp/pref-backup/Preferences/* /private/var/mobile/Library/Preferences
 			echo "4/5: Cleaning up..."
 			/lib410/Resources/neon/cleanup pref
-			echo "5/5: Respring in 5 seconds..."
-			killall SpringBoard
+			if [[ -z $doRespring ]]; then
+				echo "5/5: Respring in 5 seconds..."
+				killall SpringBoard
+			else
+				echo "5/5: Respring skipped."
+			fi
 		else
 			echo "Error:"
 			echo "Process restore_pref returned error."
