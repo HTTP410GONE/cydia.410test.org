@@ -1,6 +1,6 @@
 #!/bin/bash
 nointeraction=$1
-funcion deletecache (){
+funcion deletecache{
 	rm /var/mobile/library/cydia/metadata.cb0
 	rm /var/mobile/library/caches/com.saurik.cydia
 }

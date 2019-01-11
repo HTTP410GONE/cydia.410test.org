@@ -5,49 +5,49 @@ interaction=$3
 coredirect=$4
 ROOT=/lib410/Resources/neon/plugins/exec
 if [ $execute == "-backup-deb" ]; then
-	if [ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
 		$ROOT/backup_deb $args $interaction $coredirect
 	fi
 elif [ $execute == "-backup-pref" ]; then
-	if [ -z $(dpkg -l|grep "com.nvtechnology.neonutil-prefbackup") ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-prefbackup") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
 		$ROOT/backup_pref $args $interaction $coredirect
 	fi
 elif [ $execute == "-restore-deb" ]; then
-	if [ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debrestore") ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debrestore") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
 		$ROOT/restore_deb $args $interaction $coredirect
 	fi
 elif [ $execute == "-restore-pref" ]; then
-	if [ -z $(dpkg -l|grep "com.nvtechnology.neonutil-prefrestore") ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-prefrestore") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
 		$ROOT/restore_pref $args $interaction $coredirect
 	fi
 elif [ $execute == "-cydiafix" ]; then
-	if [ -z $(dpkg -l|grep "com.nvtechnology.neonutil-cydiafixer") ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-cydiafixer") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
 		$ROOT/cydiafixer $args $interaction $coredirect
 	fi
 elif [ $execute == "-backup-m" ]; then
-	if [ -z $(dpkg -l|grep "com.nvtechnology.neonutil-masterbackup") ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-masterbackup") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
 		$ROOT/backup_master $args $interaction $coredirect
 	fi
 elif [ $execute == "-restore-m" ]; then
-	if [ -z $(dpkg -l|grep "com.nvtechnology.neonutil-masterrestore") ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-masterrestore") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
 		$ROOT/restore_master $args $interaction $coredirect
 	fi
 elif [ $execute == "-backup-pref" ]; then
-	if [ -z $(dpkg -l|grep "com.nvtechnology.neonutil-prefbackup") ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-prefbackup") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
 		$ROOT/backup_pref $args $interaction $coredirect
