@@ -1,1 +1,36 @@
 #!/bin/bash
+name=$1
+interaction=$2
+if [[ $interaction ]]; then
+	if [[ $name ]]; then
+		echo "1/[Replace]: Extracting DEBs..."
+		/lib410/Resources/neon/plugins/exec/clone_deb
+		echo "2/[Replace]: Filtering..."
+		/lib410/Resources/neon/plugins/exec/filter_deb
+		echo "3/[Replace]: Archiving..."
+		zip -rqq /lib410/Resources/neon/BackupStorage/$name.ndebbackup /lib410/Resources/neon/temp/deb-backup
+		echo "4/[Replace]: Cleaning up..."
+		/lib410/Resources/neon/cleanup debian
+		echo "Done!"
+	else
+		echo "Error:"
+		echo "Process backup_deb returned error."
+		echo "--nointeraction option requires second argument, which is the name of the backup."
+	fi
+else
+	echo "What is the name of the backup?"
+	read name
+	if [[ -z $name ]]; then
+		echo "Name cannot be empty!"
+	else
+		echo "1/[Replace]: Extracting DEBs..."
+		/lib410/Resources/neon/plugins/exec/clone_deb
+		echo "2/[Replace]: Filtering..."
+		/lib410/Resources/neon/plugins/exec/filter_deb
+		echo "3/[Replace]: Archiving..."
+		zip -rqq /lib410/Resources/neon/BackupStorage/$name.ndebbackup /lib410/Resources/neon/temp/deb-backup
+		echo "4/[Replace]: Cleaning up..."
+		/lib410/Resources/neon/cleanup debian
+		echo "Done!"
+	fi
+fi

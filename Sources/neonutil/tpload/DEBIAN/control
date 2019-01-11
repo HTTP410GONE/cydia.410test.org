@@ -1,0 +1,9 @@
+Architecture: iphoneos-arm
+Name: Neon Utility Third Party Loader
+Package: com.nvtechnology.neonutil-tpload
+Version: 1000
+Author: HTTP410GONE <hysong0129@gmail.com>
+Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
+Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-core, com.nvtechnology.neonutil-interface
+Description: Maintenance utility plugin.
+Section: Neon Utility

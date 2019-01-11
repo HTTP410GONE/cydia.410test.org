@@ -9,6 +9,7 @@ RESTORE_PREF="notinstalled"
 RESTORE_SRC="notinstalled"
 RESTORE_M="notinstalled"
 FIX_CYDIA="notinstalled"
+TPLOAD="installed"
 echo "NEON UTILITY INTERFACE"
 echo "----------------------"
 if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
@@ -17,60 +18,68 @@ else
 	echo "1. Backup Debian Packages"
 	BACK_DEB="installed"
 fi
-if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-prefbackup") ]]; then
 	echo "2. Backup Preference Files [NI]"
 else
 	echo "2. Backup Preference Files"
 	BACK_PREF="installed"
 fi
-if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-sourcebackup") ]]; then
 	echo "3. Backup Sources List [NI]"
 else
 	echo "3. Backup Sources List"
 	BACK_SRC="installed"
 fi
-if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-masterbackup") ]]; then
 	echo "4. Backup all three above [NI]"
 else
 	echo "4. Backup all three above"
 	BACK_M="installed"
 fi
-if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debrestore") ]]; then
 	echo "5. Restore Debian Packages [NI]"
 else
 	echo "5. Restore Debian Packages"
 	RESTORE_DEB="installed"
 fi
-if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-prefrestore") ]]; then
 	echo "6. Restore Preference Files [NI]"
 else
 	echo "6. Restore Preference Files"
 	RESTORE_PREF="installed"
 fi
-if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-sourcerestore") ]]; then
 	echo "7. Restore Sources List [NI]"
 else
 	echo "7. Restore Sources List"
 	RESTORE_SRC="installed"
 fi
-if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-masterrestore") ]]; then
 	echo "8. Restore all three above [NI]"
 else
 	echo "8. Restore all three above"
 	RESTORE_M="installed"
 fi
-if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-cydiafixer") ]]; then
 	echo "9. Fix Cydia Crash [NI]"
 else
 	echo "9. Fix Cydia Crash"
-	FIX_CYDIA="notinstalled"
+	FIX_CYDIA="installed"
 fi
-echo "10. Others [Preparing]"
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-tpload") ]]; then
+	TPLOAD="notinstalled"
+else
+	echo "10. Others [Preparing]"
+fi
 echo ""
 echo -en "Option: "
 read selected
 if [ $selected == "10" ]; then
-	$ROOT/tpload
+	if [[ $BACK_DEB == "notinstalled" ]]; then
+		echo "No such option."
+	else
+		$ROOT/tpload
+	fi
 elif [ $selected == "1" ]; then
 	if [[ $BACK_DEB == "notinstalled" ]]; then
 		echo "Unable to execute. Plugin is not installed."

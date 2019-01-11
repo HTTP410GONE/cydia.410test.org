@@ -1,6 +1,6 @@
 #!/bin/bash
 nointeraction=$1
-if [ -z $nointeraction ]; then
+if [[ $nointeraction == "--nointeraction" ]]; then
 	echo "Running without interaction with user."
 	echo "This will not backup tweaks and source lists."
 	if [ -e /var/mobile/library/cydia/metadata.cb0 ]; then

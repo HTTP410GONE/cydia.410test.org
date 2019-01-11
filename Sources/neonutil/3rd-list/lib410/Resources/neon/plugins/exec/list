@@ -1,0 +1,11 @@
+#!/bin/bash
+STORAGE=/lib410/Resources/neon/BackupStorage
+echo "DEB Backups---------------"
+ls /lib410/Resources/neon/BackupStorage/*.ndebbackup
+echo "Preference Backups--------"
+ls /lib410/Resources/neon/BackupStorage/*.nprefbackup
+echo "Source List Backups-------"
+ls /lib410/Resources/neon/BackupStorage/*.nsrcbackup
+echo "Master Backups------------"
+ls /lib410/Resources/neon/BackupStorage/*.nmasbackup
+echo "--------------------------"

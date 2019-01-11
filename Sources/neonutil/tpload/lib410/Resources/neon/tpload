@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ -z "$(ls -A /lib410/Resources/neon/plugins/installed)" ]; then
+   echo "No extensions are installed."
+else
+   ls -A /lib410/Resources/neon/plugins/installed
+   echo "Execute: "
+   read exec
+   if [[ -z $(ls -A /lib410/Resources/neon/plugins/installed|grep $exec) ]]; then
+   	cmdlocation=$(</lib410/Resources/neon/plugins/installed/$exec)
+   	$cmdlocation
+   fi
+fi

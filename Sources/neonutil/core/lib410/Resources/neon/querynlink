@@ -32,7 +32,7 @@ elif [ $execute == "-cydiafix" ]; then
 	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-cydiafixer") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
-		$ROOT/cydiafixer $args $interaction $coredirect
+		$ROOT/cydiafixer $interaction
 	fi
 elif [ $execute == "-backup-m" ]; then
 	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-masterbackup") ]]; then
@@ -46,11 +46,23 @@ elif [ $execute == "-restore-m" ]; then
 	else
 		$ROOT/restore_master $args $interaction $coredirect
 	fi
-elif [ $execute == "-backup-pref" ]; then
-	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-prefbackup") ]]; then
+elif [ $execute == "-backup-src" ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-sourcebackup") ]]; then
 		echo "It seems plugin is not installed. Please install it using Cydia."
 	else
-		$ROOT/backup_pref $args $interaction $coredirect
+		$ROOT/backup_source $args $interaction $coredirect
+	fi
+elif [ $execute == "-restore-src" ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-sourcerestore") ]]; then
+		echo "It seems plugin is not installed. Please install it using Cydia."
+	else
+		$ROOT/restore_source $args $interaction $coredirect
+	fi
+elif [ $execute == "-list" ]; then
+	if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-backuplist") ]]; then
+		echo "It seems plugin is not installed. Please install it using Cydia."
+	else
+		$ROOT/list
 	fi
 else
 	echo "Error:"
