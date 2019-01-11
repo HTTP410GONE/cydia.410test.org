@@ -4,13 +4,13 @@ interaction=$2
 echo "This will only backup tweak setups in /var/mobile/Library/Preferences."
 if [[ $interaction ]]; then
 	if [[ $name ]]; then
-		echo "1/[r]: Copying Preference files..."
+		echo "1/4: Copying Preference files..."
 		/lib410/Resources/neon/plugins/exec/clone_pref
-		echo "2/[r]: Filtering..."
+		echo "2/4: Filtering..."
 		/lib410/Resources/neon/plugins/exec/filter_pref
-		echo "3/[r]: Compressing..."
+		echo "3/4: Compressing..."
 		zip -rqq /private/var/mobile/neonutil_backups/$name.nprefbackup /lib410/Resources/neon/temp/pref-backup
-		echo "4/[r]: Cleaning up..."
+		echo "4/4: Cleaning up..."
 		/lib410/Resources/neon/cleanup pref
 		echo "Done."
 	else
@@ -24,13 +24,13 @@ else
 	if [[ -z $name ]]; then
 		echo "Name cannot be empty!"
 	else
-		echo "1/[r]: Copying Preference files..."
+		echo "1/4: Copying Preference files..."
 		/lib410/Resources/neon/plugins/exec/clone_pref
-		echo "2/[r]: Filtering..."
+		echo "2/4: Filtering..."
 		/lib410/Resources/neon/plugins/exec/filter_pref
-		echo "3/[r]: Compressing..."
+		echo "3/4: Compressing..."
 		zip -rqq /private/var/mobile/neonutil_backups/$name.nprefbackup /lib410/Resources/neon/temp/pref-backup
-		echo "4/[r]: Cleaning up..."
+		echo "4/4: Cleaning up..."
 		/lib410/Resources/neon/cleanup pref
 		echo "Done."
 	fi
