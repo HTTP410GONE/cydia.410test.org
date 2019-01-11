@@ -1,11 +1,23 @@
 #!/bin/bash
 STORAGE=/lib410/Resources/neon/BackupStorage
 echo "DEB Backups---------------"
-ls /lib410/Resources/neon/BackupStorage/*.ndebbackup
+if [ -e /lib410/Resources/neon/BackupStorage/*.ndebbackup ]; then
+	ls /lib410/Resources/neon/BackupStorage/*.ndebbackup
+else
+	echo "  No backups."
 echo "Preference Backups--------"
-ls /lib410/Resources/neon/BackupStorage/*.nprefbackup
+if [ -e /lib410/Resources/neon/BackupStorage/*.nprefbackup ]; then
+	ls /lib410/Resources/neon/BackupStorage/*.nprefbackup
+else
+	echo "  No backups."
 echo "Source List Backups-------"
-ls /lib410/Resources/neon/BackupStorage/*.nsrcbackup
+if [ -e /lib410/Resources/neon/BackupStorage/*.nsrcbackup ]; then
+	ls /lib410/Resources/neon/BackupStorage/*.nsrcbackup
+else
+	echo "  No backups."
 echo "Master Backups------------"
-ls /lib410/Resources/neon/BackupStorage/*.nmasbackup
+if [ -e /lib410/Resources/neon/BackupStorage/*.nmasbackup ]; then
+	ls /lib410/Resources/neon/BackupStorage/*.nmasbackup
+else
+	echo "  No backups."
 echo "--------------------------"

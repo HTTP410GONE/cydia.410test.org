@@ -8,5 +8,7 @@ else
    if [[ -z $(ls -A /lib410/Resources/neon/plugins/installed|grep $exec) ]]; then
    	cmdlocation=$(</lib410/Resources/neon/plugins/installed/$exec)
    	$cmdlocation
+   else
+   	echo "No such extension found."
    fi
 fi
