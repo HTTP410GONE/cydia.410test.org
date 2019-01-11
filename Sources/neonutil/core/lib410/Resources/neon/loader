@@ -2,29 +2,66 @@
 ROOT=/lib410/Resources/neon
 echo Neon Utility
 if [ -z $1 ]; then
-	echo "Not enough arguments. Type 'neon help' to see the syntax."
-	exit
-elif [ -z $2 ]; then
-	echo "Not enough arguments. Type 'neon help' to see the syntax."
-	exit
+	echo "Type 'neon help' to see the syntax."
+	$ROOT/interface
 elif [ $1 == "help" ]; then
 	$ROOT/syntax-core
 elif [ $1 == "backup-deb" ]; then
-	$ROOT/querynlink -backup-deb $2 --nointeraction --coredirect
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -backup-deb $2 --nointeraction --coredirect
+	fi
 elif [ $1 == "restore-deb" ]; then
-	$ROOT/querynlink -restore-deb $2 --nointeraction --coredirect
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -restore-deb $2 --nointeraction --coredirect
+	fi
 elif [ $1 == "backup-pref" ]; then
-	$ROOT/querynlink -backup-pref $2 --nointeraction --coredirect
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -backup-pref $2 --nointeraction --coredirect
+	fi
 elif [ $1 == "restore-pref" ]; then
-	$ROOT/querynlink -restore-pref $2 --nointeraction --coredirect
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -restore-pref $2 --nointeraction --coredirect
+	fi
 elif [ $1 == "cydiafix" ]; then
-	$ROOT/querynlink -cydiafix $2 --nointeraction --coredirect
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -cydiafix $2 --nointeraction --coredirect
+	fi
 elif [ $1 == "backup-m" ]; then
-	$ROOT/querynlink -backup-m $2 --nointeraction --coredirect
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -backup-m $2 --nointeraction --coredirect
+	fi
 elif [ $1 == "restore-m" ]; then
-	$ROOT/querynlink -restore-m $2 --nointeraction --coredirect
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -restore-m $2 --nointeraction --coredirect
+	fi
 elif [ $1 == "list" ]; then
-	$ROOT/querynlink -list-backups $2 --nointeraction -coredirect
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -list-backups $2 --nointeraction -coredirect
+	fi
 elif [ $1 == "menu" ]; then
 	$ROOT/interface
 else
