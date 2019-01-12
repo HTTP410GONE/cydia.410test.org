@@ -91,8 +91,8 @@ else
 fi
 
 #logging
-exec > >(tee /lib410/Resources/neon/deb-backup-log/extraction.log)
-exec 2>/lib410/Resources/neon/deb-backup-log/extraction.err
+exec > >(tee /lib410/Resources/neon/extraction.log)
+exec 2>/lib410/Resources/neon/extraction.err
 
 #check syntax and possibly list bundle IDs if requested
 badName=`dpkg --get-selections | grep -i $1`
