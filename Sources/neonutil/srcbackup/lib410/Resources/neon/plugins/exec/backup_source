@@ -10,7 +10,8 @@ if [[ $interaction ]]; then
 		cp -r /etc/apt/sources.list.d /lib410/Resources/neon/temp/src-backup
 		echo "2/3: Compressing..."
 		cd /lib410/Resources/neon/temp/
-		zip -rqq /private/var/mobile/neonutil_backups/$name.nsrcbackup src-backup
+		zip -rqq $name.nsrcbackup src-backup
+		mv $name.nsrcbackup /private/var/mobile/neonutil_backups/$name.nsrcbackup
 		echo "3/3: Cleaning up..."
 		/lib410/Resources/neon/cleanup src
 		echo "Done."
@@ -29,7 +30,8 @@ else
 		cp -r /etc/apt/sources.list.d /lib410/Resources/neon/temp/src-backup
 		echo "2/3: Compressing..."
 		cd /lib410/Resources/neon/temp/
-		zip -rqq /private/var/mobile/neonutil_backups/$name.nsrcbackup src-backup
+		zip -rqq $name.nsrcbackup src-backup
+		mv $name.nsrcbackup /private/var/mobile/neonutil_backups/$name.nsrcbackup
 		echo "3/3: Cleaning up..."
 		/lib410/Resources/neon/cleanup src
 		echo "Done."

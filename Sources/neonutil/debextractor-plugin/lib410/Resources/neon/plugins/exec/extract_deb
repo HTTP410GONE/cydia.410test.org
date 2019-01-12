@@ -25,6 +25,7 @@ info=${bldwht}*${txtrst}          #  Feedback
 pass=${bldpur}*${txtrst}          #  input passed
 warn=${bldred}*${txtrst}
 ques=${bldblu}?${txtrst}
+processlog=/lib410/Resources/neon/plugins/log-debextraction
 
 # Functions
 function usage()
@@ -53,6 +54,7 @@ function usage()
                           packageID=`j=0;for i in $(dpkg --get-selections | awk '{print $1}'|grep -v gsc|grep -v "^cy+");do echo $j:$i;j=$[j+1];done | grep -e "$packageNum" | head -1 |awk -F ":" '{print $2}'`
                           #read packageID
                           BUNDLEID="$packageID"
+                          echo "EXTRACTION: "$BUNDLEID > $processlog
                           echo -e "You have selected : $bldpur$packageID$txtrst"
                         fi
                         ;; #ending of the valid inserted number case
@@ -77,7 +79,7 @@ function prtok()
 
 
 #Let's see if the Redeb folder exists in /var/mobile/Documents and it will be created when needed
-export REDEB="/private/var/mobile/Documents/debackup.lib"
+export REDEB="/lib410/Resources/neon/temp/deb-backup"
 
 if [ -d "$REDEB" ];
   then
@@ -89,8 +91,8 @@ else
 fi
 
 #logging
-exec > >(tee /private/var/mobile/Documents/debackup.lib/redeb.log)
-exec 2>/private/var/mobile/Documents/debackup.lib/redeb.err
+exec > >(tee /lib410/Resources/neon/deb-backup-log/extraction.log)
+exec 2>/lib410/Resources/neon/deb-backup-log/extraction.err
 
 #check syntax and possibly list bundle IDs if requested
 badName=`dpkg --get-selections | grep -i $1`
@@ -104,8 +106,8 @@ fi
 
 #define some variables
 DEB="$BUNDLEID".deb
-export ROOTDIR="/private/var/mobile/Documents/debackup.lib/Query/$BUNDLEID"
-export DebsFolder="/private/var/mobile/Documents/debackup.lib/temp"
+export ROOTDIR="/lib410/Resources/neon/temp/deb-query/$BUNDLEID"
+export DebsFolder="/lib410/Resources/neon/temp/deb-backup"
 
 #check for the debs dir, where the deb file will be moved after it is created
 if [ -d "$DebsFolder" ]; then

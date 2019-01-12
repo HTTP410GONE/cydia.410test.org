@@ -1,6 +1,8 @@
 #!/bin/bash
 STORAGE=/lib410/Resources/neon/temp/deb-backup
-rm $STORAGE/com.saurik.*
+if [ -e $STORAGE/com.saurik.* ]; then
+	rm $STORAGE/com.saurik.*
+fi
 echo "  Filter: Removed Saurik Packages"
 if [ -e $STORAGE/com.ex.substitute* ]; then
 	rm $STORAGE/com.ex.substitute*

@@ -13,7 +13,8 @@ if [[ $interaction ]]; then
 		/lib410/Resources/neon/plugins/exec/filter_pref
 		echo "3/4: Compressing..."
 		cd /lib410/Resources/neon/temp/
-		zip -rqq /private/var/mobile/neonutil_backups/$name.nprefbackup pref-backup
+		zip -rqq $name.nprefbackup pref-backup
+		mv $name.nprefbackup /private/var/mobile/neonutil_backups/$name.nprefbackup
 		echo "4/4: Cleaning up..."
 		/lib410/Resources/neon/cleanup pref
 		echo "Done."
@@ -34,7 +35,8 @@ else
 		/lib410/Resources/neon/plugins/exec/filter_pref
 		echo "3/4: Compressing..."
 		cd /lib410/Resources/neon/temp/
-		zip -rqq /private/var/mobile/neonutil_backups/$name.nprefbackup pref-backup
+		zip -rqq $name.nprefbackup pref-backup
+		mv $name.nprefbackup /private/var/mobile/neonutil_backups/$name.nprefbackup
 		echo "4/4: Cleaning up..."
 		/lib410/Resources/neon/cleanup pref
 		echo "Done."
