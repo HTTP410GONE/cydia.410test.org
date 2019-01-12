@@ -9,7 +9,7 @@ echo "  Filter: Removed Substitute (If exists)"
 if [ -e $STORAGE/*dpkg* ]; then
 	rm $STORAGE/*dpkg*
 fi
-echo "  Filter: 3/6 - Removed DPKG (If exists)"
+echo "  Filter: Removed DPKG (If exists)"
 if [ -e $STORAGE/*apt* ]; then
 	rm $STORAGE/*apt*
 fi

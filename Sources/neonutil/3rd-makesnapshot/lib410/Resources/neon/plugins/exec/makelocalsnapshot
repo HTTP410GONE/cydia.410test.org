@@ -16,10 +16,10 @@ function makeSnapshot {
 	if [ -e $oldestSnapshotName ]; then
 		oldestsnapshot=$(<$oldestSnapshotName)
 		echo "Deleting..."
-		rm $snapshotStorage/$
+		rm $snapshotStorage/$oldestsnapshot
 	fi
 	echo "Making space for latest snapshot..."
-	echo $(<$snapshotStorage/$latestSnapshotName) > $oldestSnapshotName
+	echo $(<$snapshotStorage/$latestSnapshot) > $oldestSnapshotName
 	echo "Registering snapshot..."
 	echo $name.snapshot > $latestSnapshotName
 	echo "Done."
