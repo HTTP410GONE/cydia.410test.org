@@ -69,7 +69,7 @@ fi
 if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-extload") ]]; then
 	extload="notinstalled"
 else
-	echo "10. Others [Preparing]"
+	echo "10. Others (Extensions)"
 fi
 echo ""
 echo -en "Option: "

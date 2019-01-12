@@ -22,10 +22,10 @@ function makeSnapshot {
 	echo $name.snapshot > $latestSnapshotName
 	echo "Done."
 }
-if [ $1 == "--nointeraction" ]; then
+if [[ $1 ]]; then
 	echo "Making snapshot..."
 	makeSnapshot
-elif [ $1 == "--removesnapshots" ]; then
+elif [[ $1 == "removesnapshots" ]]; then
 	echo "Cleaning snapshots..."
 	rm -r /private/var/mobile/neonutil_backups/localsnapshots
 	mkdir /private/var/mobile/neonutil_backups/localsnapshots

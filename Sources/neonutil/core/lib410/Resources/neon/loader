@@ -1,6 +1,9 @@
 #!/bin/bash
 ROOT=/lib410/Resources/neon
-$ROOT/permission
+if [ "$(id -u)" != "0" ]; then
+   echo "Not enough permission!"
+   exit
+fi
 echo Neon Utility
 if [ -z $1 ]; then
 	echo "Type 'neon help' to see the syntax."
