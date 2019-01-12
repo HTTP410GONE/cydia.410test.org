@@ -13,9 +13,11 @@ function makeSnapshot {
 	echo "Storing backup to snapshot storage..."
 	mv /private/var/mobile/neonutil_backups/$name.nmasbackup $snapshotStorage/$name.snapshot
 	echo "Loading oldest snapshot..."
-	oldestsnapshot=$(<$oldestSnapshotName)
-	echo "Deleting..."
-	rm $snapshotStorage/$oldestsnapshot
+	if [ -e $oldestSnapshotName ]; then
+		oldestsnapshot=$(<$oldestSnapshotName)
+		echo "Deleting..."
+		rm $snapshotStorage/$
+	fi
 	echo "Making space for latest snapshot..."
 	echo $(<$snapshotStorage/$latestSnapshotName) > $oldestSnapshotName
 	echo "Registering snapshot..."

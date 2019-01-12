@@ -20,12 +20,11 @@ function extract {
 }
 
 echo "  Found " $total " debs to extract."
-if [ $total > $limit ]; then
+if [ $total -gt $limit ]; then
 	if [[ -z $override ]]; then
 		echo "Unable to continue."
 		echo "Reason: ReachedDeviceOverloadLimit"
 		echo "Due to prevent the overload and reboot of the device, the cloning process is terminated."
-		exit
 	else
 		extract
 	fi
