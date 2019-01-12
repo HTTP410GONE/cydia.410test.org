@@ -1,6 +1,6 @@
 Architecture: iphoneos-arm
 Name: [Neon Extension] Quick Snapshot Maker
-Package: com.nvtechnology.neonutil-backuplist
+Package: com.nvtechnology.neonutil-snapshotmaker
 Version: 1000
 Author: HTTP410GONE <hysong0129@gmail.com>
 Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
