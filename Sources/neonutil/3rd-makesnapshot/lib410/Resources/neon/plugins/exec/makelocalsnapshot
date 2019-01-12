@@ -4,7 +4,6 @@ function makeSnapshot {
 	name=$(date '+%d%m%Y%H%M%S');
 	snapshotStorage="/private/var/mobile/neonutil_backups/localsnapshots"
 	inProgressIndicator=$snapshotStorage/"processIndicator"
-	oldestSnapshotName=$snapshotStorage/"oldestsnapshot"
 	latestSnapshotName=$snapshotStorage/"latestsnapshot"
 	snapshotName=$snapshotStorage/$name
 	echo "RUN_MAKE_LOCALSNAPSHOT_NAME:"$name > $inProgressIndicator
@@ -13,13 +12,12 @@ function makeSnapshot {
 	echo "Storing backup to snapshot storage..."
 	mv /private/var/mobile/neonutil_backups/$name.nmasbackup $snapshotStorage/$name.snapshot
 	echo "Loading oldest snapshot..."
-	if [ -e $oldestSnapshotName ]; then
-		oldestsnapshot=$(<$oldestSnapshotName)
+	if [ -e $snapshotStorage/oldestsnapshot ]; then
 		echo "Deleting..."
-		rm $snapshotStorage/$oldestsnapshot
+		rm $snapshotStorage/oldestsnapshot
 	fi
 	echo "Making space for latest snapshot..."
-	echo $(<$snapshotStorage/$latestSnapshot) > $oldestSnapshotName
+	echo $(<$snapshotStorage/$latestSnapshot) > $snapshotStorage/oldestsnapshot
 	echo "Registering snapshot..."
 	echo $name.snapshot > $latestSnapshotName
 	echo "Done."
