@@ -9,7 +9,7 @@ RESTORE_PREF="notinstalled"
 RESTORE_SRC="notinstalled"
 RESTORE_M="notinstalled"
 FIX_CYDIA="notinstalled"
-TPLOAD="installed"
+extload="installed"
 echo "NEON UTILITY INTERFACE"
 echo "----------------------"
 if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-debbackup") ]]; then
@@ -66,8 +66,8 @@ else
 	echo "9. Fix Cydia Crash"
 	FIX_CYDIA="installed"
 fi
-if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-tpload") ]]; then
-	TPLOAD="notinstalled"
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-extload") ]]; then
+	extload="notinstalled"
 else
 	echo "10. Others [Preparing]"
 fi
@@ -78,7 +78,7 @@ if [ $selected == "10" ]; then
 	if [[ $BACK_DEB == "notinstalled" ]]; then
 		echo "No such option."
 	else
-		$ROOT/tpload
+		$ROOT/extload
 	fi
 elif [ $selected == "1" ]; then
 	if [[ $BACK_DEB == "notinstalled" ]]; then

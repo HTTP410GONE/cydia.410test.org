@@ -1,9 +1,9 @@
 Architecture: iphoneos-arm
-Name: [Neon Extension] List Backups
+Name: [Neon Extension] Quick Snapshot Maker
 Package: com.nvtechnology.neonutil-backuplist
 Version: 1000
 Author: HTTP410GONE <hysong0129@gmail.com>
 Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
-Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-interface, com.nvtechnology.neonutil-core, com.nvtechnology.neonutil-extload
+Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-interface, com.nvtechnology.neonutil-core, com.nvtechnology.neonutil-extload, com.nvtechnology.neonutil-masterbackup
 Description: Maintenance utility extension.
 Section: Neon Utility

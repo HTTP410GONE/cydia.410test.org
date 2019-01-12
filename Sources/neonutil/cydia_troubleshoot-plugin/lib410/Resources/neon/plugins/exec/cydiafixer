@@ -2,14 +2,15 @@
 nointeraction=$1
 if [[ $nointeraction == "--nointeraction" ]]; then
 	echo "Running without interaction with user."
+	echo "This process WILL NOT delete installed tweaks and sources."
 	echo "This will not backup tweaks and source lists."
-	if [ -e /var/mobile/library/cydia/metadata.cb0 ]; then
-		rm /var/mobile/library/cydia/metadata.cb0
+	if [ -e /var/mobile/Library/Cydia ]; then
+		rm -r /var/mobile/Library/Cydia
 	else
 		echo "metadata.cb0 not found."
 	fi
-	if [ -e /var/mobile/library/caches/com.saurik.cydia ]; then
-		rm /var/mobile/library/caches/com.saurik.cydia
+	if [ -e /var/mobile/Library/Caches/com.saurik.Cydia ]; then
+		rm /var/mobile/Library/Caches/com.saurik.Cydia
 	else
 		echo "Cache not found."
 	fi
@@ -20,6 +21,33 @@ if [[ $nointeraction == "--nointeraction" ]]; then
 	sleep 5
 	reboot
 else
-	echo "Interaction with user is not supported yet."
-	exit
+	echo "This process WILL NOT delete installed tweaks and sources."
+	echo "Delete metadata.cb0?"
+	echo -ne "y/n: "
+	read yn
+	if [ $yn == "y" ]; then
+		if [ -e /var/mobile/Library/Cydia ]; then
+			rm -r /var/mobile/Library/Cydia
+		else
+			echo "metadata.cb0 not found."
+		fi
+	elif [ $yn == "n" ]; then
+		echo "Aborted."
+	else
+		echo "No such option."
+	fi
+	echo "Delete /var/mobile/Library/Caches/com.saurik.Cydia?"
+	echo -ne "y/n: "
+	read yn
+	if [ $yn == "y" ]; then
+		if [ -e /var/mobile/Library/Caches/com.saurik.Cydia ]; then
+			rm /var/mobile/Library/Caches/com.saurik.Cydia
+		else
+			echo "Cache not found."
+		fi
+	elif [ $yn == "n" ]; then
+		echo "Aborted."
+	else
+		echo "No such option."
+	fi
 fi

@@ -16,6 +16,7 @@ if [[ $interaction ]]; then
 			echo "4/5: Cleaning up..."
 			/lib410/Resources/neon/cleanup src
 			echo "5/5: Respring in 5 seconds..."
+			sleep 5
 			killall SpringBoard
 		else
 			echo "Error:"
@@ -40,6 +41,7 @@ else
 		echo "4/5: Cleaning up..."
 		/lib410/Resources/neon/cleanup src
 		echo "5/5: Respring in 5 seconds..."
+		sleep 5
 		killall SpringBoard
 	else
 		echo "Error:"

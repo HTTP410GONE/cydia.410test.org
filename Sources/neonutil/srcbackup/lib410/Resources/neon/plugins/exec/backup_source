@@ -9,7 +9,8 @@ if [[ $interaction ]]; then
 		echo "1/3: Copying APT Source directory..."
 		cp -r /etc/apt/sources.list.d /lib410/Resources/neon/temp/src-backup
 		echo "2/3: Compressing..."
-		zip -rqq /private/var/mobile/neonutil_backups/$name.nsrcbackup /lib410/Resources/neon/temp/src-backup
+		cd /lib410/Resources/neon/temp/
+		zip -rqq /private/var/mobile/neonutil_backups/$name.nsrcbackup src-backup
 		echo "3/3: Cleaning up..."
 		/lib410/Resources/neon/cleanup src
 		echo "Done."
@@ -27,7 +28,8 @@ else
 		echo "1/3: Copying APT Source directory..."
 		cp -r /etc/apt/sources.list.d /lib410/Resources/neon/temp/src-backup
 		echo "2/3: Compressing..."
-		zip -rqq /private/var/mobile/neonutil_backups/$name.nsrcbackup /lib410/Resources/neon/temp/src-backup
+		cd /lib410/Resources/neon/temp/
+		zip -rqq /private/var/mobile/neonutil_backups/$name.nsrcbackup src-backup
 		echo "3/3: Cleaning up..."
 		/lib410/Resources/neon/cleanup src
 		echo "Done."

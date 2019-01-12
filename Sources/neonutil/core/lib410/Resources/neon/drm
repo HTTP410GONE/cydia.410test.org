@@ -1,4 +1,10 @@
 #!/bin/bash
-echo "Checking for any modifications..."
-echo "DRM is not activated yet."
-/lib410/Resources/neon/loader $1 $2
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-core") ]]; then
+	echo "Failed to verify core. Please use the official core."
+	exit
+fi
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil-interface") ]]; then
+	echo "Failed to verify interface. Please use the official interface."
+	exit
+fi
+/lib410/Resources/neon/loader $1 $2 $3 $4

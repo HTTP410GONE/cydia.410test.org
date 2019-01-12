@@ -14,7 +14,8 @@ if [[ $interaction ]]; then
 		mv /private/var/mobile/neonutil_backups/$name.nprefbackup /private/var/mobile/neonutil_backups/m/$name.nprefbackup
 		mv /private/var/mobile/neonutil_backups/$name.nsrcbackup /private/var/mobile/neonutil_backups/m/$name.nsrcbackup
 		mv /private/var/mobile/neonutil_backups/$name.ndebbackup /private/var/mobile/neonutil_backups/m/$name.ndebbackup
-		zip -rqq /private/var/mobile/neonutil_backups/$name.nmasbackup /private/var/mobile/neonutil_backups/m
+		cd /private/var/mobile/neonutil_backups
+		zip -rqq /private/var/mobile/neonutil_backups/$name.nmasbackup m
 		echo "5/5: Cleaning up..."
 		rm -r /private/var/mobile/neonutil_backups/m
 		echo "Done."
@@ -40,7 +41,8 @@ else
 		mv /private/var/mobile/neonutil_backups/$name.nprefbackup /private/var/mobile/neonutil_backups/m/$name.nprefbackup
 		mv /private/var/mobile/neonutil_backups/$name.nsrcbackup /private/var/mobile/neonutil_backups/m/$name.nsrcbackup
 		mv /private/var/mobile/neonutil_backups/$name.ndebbackup /private/var/mobile/neonutil_backups/m/$name.ndebbackup
-		zip -rqq /private/var/mobile/neonutil_backups/$name.nmasbackup /private/var/mobile/neonutil_backups/m
+		cd /private/var/mobile/neonutil_backups
+		zip -rqq /private/var/mobile/neonutil_backups/$name.nmasbackup m
 		echo "5/5: Cleaning up..."
 		rm -r /private/var/mobile/neonutil_backups/m
 		echo "Done."

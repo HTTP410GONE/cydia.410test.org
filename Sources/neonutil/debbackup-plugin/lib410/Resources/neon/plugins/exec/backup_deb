@@ -1,14 +1,21 @@
 #!/bin/bash
 name=$1
 interaction=$2
+override=$3
 if [[ $interaction ]]; then
 	if [[ $name ]]; then
 		echo "1/4: Extracting DEBs..."
-		/lib410/Resources/neon/plugins/exec/clone_deb
+		if [[ $override ]]; then
+			echo "  !!Override limitation detected. This may cause reboot!!"
+			/lib410/Resources/neon/plugins/exec/clone_deb --override
+		else
+			/lib410/Resources/neon/plugins/exec/clone_deb
+		fi
 		echo "2/4: Filtering..."
 		/lib410/Resources/neon/plugins/exec/filter_deb
 		echo "3/4: Archiving..."
-		zip -rqq /private/var/mobile/neonutil_backups/$name.ndebbackup /lib410/Resources/neon/temp/deb-backup
+		cd /lib410/Resources/neon/temp
+		zip -rqq /private/var/mobile/neonutil_backups/$name.ndebbackup deb-backup
 		echo "4/4: Cleaning up..."
 		/lib410/Resources/neon/cleanup debian
 		echo "Done!"
@@ -28,7 +35,8 @@ else
 		echo "2/4: Filtering..."
 		/lib410/Resources/neon/plugins/exec/filter_deb
 		echo "3/4: Archiving..."
-		zip -rqq /private/var/mobile/neonutil_backups/$name.ndebbackup /lib410/Resources/neon/temp/deb-backup
+		cd /lib410/Resources/neon/temp
+		zip -rqq /private/var/mobile/neonutil_backups/$name.ndebbackup deb-backup
 		echo "4/4: Cleaning up..."
 		/lib410/Resources/neon/cleanup debian
 		echo "Done!"

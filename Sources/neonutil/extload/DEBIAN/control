@@ -1,6 +1,6 @@
 Architecture: iphoneos-arm
 Name: Neon Utility Extension Loader
-Package: com.nvtechnology.neonutil-tpload
+Package: com.nvtechnology.neonutil-extload
 Version: 1000
 Author: HTTP410GONE <hysong0129@gmail.com>
 Maintainer: NVTechnology Korea <nvtechkr@gmail.com>

@@ -1,0 +1,37 @@
+#!/bin/bash
+exec=null
+arg1=null
+arg2=null
+arg3=null
+if [ $1 ]; then
+   exec=$1
+   if [ $2 ]; then
+      arg1=$2
+   fi
+   if [ $3 ]; then
+      arg2=$3
+   fi
+   if [ $4 ]; then
+      arg3=$4
+   fi
+   if [ -z $(ls /lib410/Resources/neon/plugins/installed|grep $exec) ]; then
+      echo "No such extension found."
+   else
+      cmdlocation=$(</lib410/Resources/neon/plugins/installed/$exec)
+      $cmdlocation $arg1 $arg2 $arg3
+   fi
+else
+   if [ -z "$(ls -A /lib410/Resources/neon/plugins/installed)" ]; then
+      echo "No extensions are installed."
+   else
+      ls -A /lib410/Resources/neon/plugins/installed
+      echo "Execute: "
+      read exec
+      if [ -z $(ls /lib410/Resources/neon/plugins/installed|grep $exec) ]; then
+      	echo "No such extension found."
+      else
+         cmdlocation=$(</lib410/Resources/neon/plugins/installed/$exec)
+         $cmdlocation
+      fi
+   fi
+fi

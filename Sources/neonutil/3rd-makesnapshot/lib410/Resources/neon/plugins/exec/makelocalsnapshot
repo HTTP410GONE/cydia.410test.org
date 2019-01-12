@@ -1,0 +1,43 @@
+#!/bin/bash
+function makeSnapshot {
+	echo "Preparing for backup..."
+	name=$(date '+%d%m%Y%H%M%S');
+	snapshotStorage="/private/var/mobile/neonutil_backups/localsnapshots"
+	inProgressIndicator=$snapshotStorage/"processIndicator"
+	oldestSnapshotName=$snapshotStorage/"oldestsnapshot"
+	latestSnapshotName=$snapshotStorage/"latestsnapshot"
+	snapshotName=$snapshotStorage/$name
+	echo "RUN_MAKE_LOCALSNAPSHOT_NAME:"$name > $inProgressIndicator
+	echo "Running Master Backup..."
+	/lib410/Resources/neon/plugins/exec/backup_master $name --nointeraction
+	echo "Storing backup to snapshot storage..."
+	mv /private/var/mobile/neonutil_backups/$name.nmasbackup $snapshotStorage/$name.snapshot
+	echo "Loading oldest snapshot..."
+	oldestsnapshot=$(<$oldestSnapshotName)
+	echo "Deleting..."
+	rm $snapshotStorage/$oldestsnapshot
+	echo "Making space for latest snapshot..."
+	echo $(<$snapshotStorage/$latestSnapshotName) > $oldestSnapshotName
+	echo "Registering snapshot..."
+	echo $name.snapshot > $latestSnapshotName
+	echo "Done."
+}
+if [ $1 == "--nointeraction" ]; then
+	echo "Making snapshot..."
+	makeSnapshot
+elif [ $1 == "--removesnapshots" ]; then
+	echo "Cleaning snapshots..."
+	rm -r /private/var/mobile/neonutil_backups/localsnapshots
+	mkdir /private/var/mobile/neonutil_backups/localsnapshots
+	echo "Done."
+else
+	echo "Would you make a snapshot?"
+	read yn
+	if [ $yn == "n" ]; then
+		echo "Aborted."
+		exit
+	elif [ $yn == "y" ]; then
+		echo "Making snapshot..."
+		makeSnapshot
+	fi
+fi

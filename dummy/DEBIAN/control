@@ -1,9 +1,0 @@
-Architecture: iphoneos-arm
-Name: Repo Dummy File
-Package: 410.testrepo.dummyfile
-Version: 1
-Author: HTTP410GONE <hysong0129@gmail.com>
-Maintainer: HTTP410GONE <hysong0129@gmail.com>
-Depends: firmware (<= 0.0)
-Description: Dummy.
-Section: null

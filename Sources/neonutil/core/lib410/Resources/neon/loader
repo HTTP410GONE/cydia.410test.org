@@ -11,7 +11,7 @@ elif [ $1 == "backup-deb" ]; then
 		echo "Not enough arguments. Type 'neon help' to see the syntax."
 		exit
 	else
-		$ROOT/querynlink -backup-deb $2 --nointeraction --coredirect
+		$ROOT/querynlink -backup-deb $2 --nointeraction $3
 	fi
 elif [ $1 == "restore-deb" ]; then
 	if [ -z $2 ]; then
@@ -76,5 +76,13 @@ elif [ $1 == "list" ]; then
 elif [ $1 == "menu" ]; then
 	$ROOT/interface
 else
-	echo "Parsing error. Unknown arguments or unparsable structure command."
+	if [ -e $ROOT/extload ]; then
+		if [[ $(dpkg -l|grep "com.nvtechnology.neonutil-extload") ]]; then
+			$ROOT/extload $1 $2 $3 $4
+		else
+			echo "Extension loader is not official. Unable to continue."
+		fi
+	else
+		echo "No such arguments."
+	fi
 fi
