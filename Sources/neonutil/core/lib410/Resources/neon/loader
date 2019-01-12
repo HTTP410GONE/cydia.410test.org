@@ -1,5 +1,6 @@
 #!/bin/bash
 ROOT=/lib410/Resources/neon
+$ROOT/permission
 echo Neon Utility
 if [ -z $1 ]; then
 	echo "Type 'neon help' to see the syntax."
