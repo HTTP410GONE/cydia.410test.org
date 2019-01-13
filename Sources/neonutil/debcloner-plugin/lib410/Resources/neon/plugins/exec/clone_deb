@@ -1,6 +1,7 @@
 #!/bin/bash
 override=$1
 log=/lib410/Resources/neon/plugins/log-debcloner
+abortrecord=/lib410/Resources/neon/plugins/abortlog-debcloner
 declare -i limit=$(</lib410/Preferences/neon/debcloner_extractLimit)
 echo "QUERY_PKGS_INSTALLED">$log
 total=$(dpkg --get-selections | awk '{print $1}'|grep -v gsc|grep -v "^cy+" | wc -l)
@@ -14,6 +15,7 @@ function extract {
 		( echo y
 		echo $i
 		 ) | /lib410/Resources/neon/plugins/exec/extract_deb >&- 2>&-
+		rm /lib410/Resources/neon/plugins/log-debextraction
 		percent=$(awk "BEGIN { pc=100*${i}/${total}; i=int(pc); print (pc-i<0.5)?i:i+1 }")
 		if [ $percent -ne $previousVal ]; then
 			echo "REFRESH_DISPLAYING_PERCENTAGE">$log
@@ -52,6 +54,7 @@ if [ $total -gt $limit ]; then
 		echo "Limit: "$limit
 		echo "Due to prevent the overload and reboot of the device, the cloning process is terminated."
 		rm $log
+		echo "REACHED_LIMIT" > $abortrecord
 	else
 		extract
 	fi

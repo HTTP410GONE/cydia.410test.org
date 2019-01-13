@@ -15,7 +15,10 @@ if [[ $interaction ]]; then
 			/lib410/Resources/neon/plugins/exec/clone_deb
 		fi
 		echo "CLEAN_EXTRACTOR_LOG" > $log
-		rm /lib410/Resources/neon/plugins/log-debextract
+		if [ -e /lib410/Resources/neon/plugins/abortlog-debcloner ]; then
+			echo "Backup aborted."
+			exit
+		fi
 		echo "2/4: Filtering..."
 		echo "START_FILTERING" > $log
 		/lib410/Resources/neon/plugins/exec/filter_deb
@@ -50,7 +53,10 @@ else
 			/lib410/Resources/neon/plugins/exec/clone_deb
 		fi
 		echo "CLEAN_EXTRACTOR_LOG" > $log
-		rm /lib410/Resources/neon/plugins/log-debextract
+		if [ -e /lib410/Resources/neon/plugins/abortlog-debcloner ]; then
+			echo "Backup aborted."
+			exit
+		fi
 		echo "2/4: Filtering..."
 		echo "START_FILTERING" > $log
 		/lib410/Resources/neon/plugins/exec/filter_deb

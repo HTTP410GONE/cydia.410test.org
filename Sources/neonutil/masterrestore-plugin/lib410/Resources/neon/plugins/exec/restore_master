@@ -10,7 +10,8 @@ if [[ $interaction ]]; then
 			echo "1/5: Copying backup file..."
 			cp /private/var/mobile/neonutil_backups/$name.nmasbackup /lib410/Resources/neon/temp/master-backup/backup.zip
 			echo "2/5: Unpacking backup file..."
-			unzip -rqq /lib410/Resources/neon/temp/master-backup/backup.zip
+			cd /lib410/Resources/neon/temp/master-backup/
+			unzip -qq backup.zip
 			echo "3/5: Moving each image to place..."
 			mv /lib410/Resources/neon/temp/master-backup/m/$name.nprefbackup /private/var/mobile/neonutil_backups/$name.nprefbackup
 			mv /lib410/Resources/neon/temp/master-backup/m/$name.nsrcbackup /private/var/mobile/neonutil_backups/$name.nsrcbackup
@@ -42,7 +43,8 @@ else
 		echo "1/5: Copying backup file..."
 			cp /private/var/mobile/neonutil_backups/$name.nmasbackup /lib410/Resources/neon/temp/master-backup/backup.zip
 			echo "2/5: Unpacking backup file..."
-			unzip -rqq /lib410/Resources/neon/temp/master-backup/backup.zip
+			cd /lib410/Resources/neon/temp/master-backup/
+			unzip -qq backup.zip
 			echo "3/5: Moving each image to place..."
 			mv /lib410/Resources/neon/temp/master-backup/m/$name.nprefbackup /private/var/mobile/neonutil_backups/$name.nprefbackup
 			mv /lib410/Resources/neon/temp/master-backup/m/$name.nsrcbackup /private/var/mobile/neonutil_backups/$name.nsrcbackup

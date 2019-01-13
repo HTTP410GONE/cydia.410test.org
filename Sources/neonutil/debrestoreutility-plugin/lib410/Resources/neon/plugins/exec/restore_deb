@@ -7,7 +7,8 @@ if [[ $interaction ]]; then
 			echo "1/6: Copying backup file..."
 			cp /private/var/mobile/neonutil_backups/$name.ndebbackup /lib410/Resources/neon/temp/deb-backup/backup.zip
 			echo "2/6: Unpacking backup file..."
-			unzip -rqq /lib410/Resources/neon/temp/deb-backup/backup.zip
+			cd /lib410/Resources/neon/temp/deb-backup
+			unzip -qq backup.zip
 			echo "3/6: Installing debs using dpkg..."
 			dpkg -i /lib410/Resources/neon/temp/deb-backup/*.deb
 			echo "4/6: Cleaning up..."
@@ -36,7 +37,8 @@ else
 			echo "1/6: Copying backup file..."
 			cp /private/var/mobile/neonutil_backups/$name.ndebbackup /lib410/Resources/neon/temp/deb-backup/backup.zip
 			echo "2/6: Unpacking backup file..."
-			unzip -rqq /lib410/Resources/neon/temp/deb-backup/backup.zip
+			cd /lib410/Resources/neon/temp/deb-backup
+			unzip -qq backup.zip
 			echo "3/6: Installing debs using dpkg..."
 			dpkg -i /lib410/Resources/neon/temp/deb-backup/*.deb
 			echo "4/6: Cleaning up..."

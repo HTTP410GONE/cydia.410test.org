@@ -10,7 +10,8 @@ if [[ $interaction ]]; then
 			echo "1/5: Copying backup file..."
 			cp /private/var/mobile/neonutil_backups/$name.nsrcbackup /lib410/Resources/neon/temp/src-backup/backup.zip
 			echo "2/5: Unpacking backup file..."
-			unzip -rqq /lib410/Resources/neon/temp/src-backup/backup.zip
+			cd /lib410/Resources/neon/temp/src-backup
+			unzip -qq backup.zip
 			echo "3/5: Overwriting..."
 			cp /lib410/Resources/neon/temp/src-backup/sources.list.d/* /etc/apt/sources.list.d/
 			echo "4/5: Cleaning up..."
@@ -35,7 +36,8 @@ else
 		echo "1/5: Copying backup file..."
 		cp /private/var/mobile/neonutil_backups/$name.nsrcbackup /lib410/Resources/neon/temp/src-backup/backup.zip
 		echo "2/5: Unpacking backup file..."
-		unzip -rqq /lib410/Resources/neon/temp/src-backup/backup.zip
+		cd /lib410/Resources/neon/temp/src-backup
+		unzip -qq backup.zip
 		echo "3/5: Overwriting..."
 		cp /lib410/Resources/neon/temp/src-backup/sources.list.d/* /etc/apt/sources.list.d/
 		echo "4/5: Cleaning up..."

@@ -8,7 +8,8 @@ if [[ $interaction ]]; then
 			echo "1/5: Copying backup file..."
 			cp /private/var/mobile/neonutil_backups/$name.nprefbackup /lib410/Resources/neon/temp/pref-backup/backup.zip
 			echo "2/5: Unpacking backup file..."
-			unzip -rqq /lib410/Resources/neon/temp/pref-backup/backup.zip
+			cd /lib410/Resources/neon/temp/pref-backup/
+			unzip -qq backup.zip
 			echo "3/5: Overwriting..."
 			cp /lib410/Resources/neon/temp/pref-backup/Preferences/* /private/var/mobile/Library/Preferences
 			echo "4/5: Cleaning up..."
@@ -36,7 +37,8 @@ else
 		echo "1/5: Copying backup file..."
 		cp /private/var/mobile/neonutil_backups/$name.nprefbackup /lib410/Resources/neon/temp/pref-backup/backup.zip
 		echo "2/5: Unpacking backup file..."
-		unzip -rqq /lib410/Resources/neon/temp/pref-backup/backup.zip
+		cd /lib410/Resources/neon/temp/pref-backup/
+		unzip -qq backup.zip
 		echo "3/5: Overwriting..."
 		cp /lib410/Resources/neon/temp/pref-backup/Preferences/* /private/var/mobile/Library/Preferences
 		echo "4/5: Cleaning up..."
