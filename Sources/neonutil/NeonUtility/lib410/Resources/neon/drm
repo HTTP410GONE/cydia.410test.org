@@ -1,0 +1,11 @@
+#!/bin/bash
+if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil") ]]; then
+	echo "Failed to verify. Please use the official package."
+	exit
+fi
+if [ -e /lib410/Resources/neon/plugins/tpload ]; then
+	echo "Depreicated extension loader detected."
+	echo "Please remove: com.nvtechnology.neonutil-tpload"
+	exit
+fi
+/lib410/Resources/neon/loader $1 $2 $3 $4

@@ -1,0 +1,31 @@
+#!/bin/bash
+execute=$1
+args=$2
+interaction=$3
+coredirect=$4
+ROOT=/lib410/Resources/neon/plugins/exec
+if [ $execute == "-backup-deb" ]; then
+	$ROOT/backup_deb $args $interaction $coredirect
+elif [ $execute == "-backup-pref" ]; then
+	$ROOT/backup_pref $args $interaction $coredirect
+elif [ $execute == "-restore-deb" ]; then
+	$ROOT/restore_deb $args $interaction $coredirect
+elif [ $execute == "-restore-pref" ]; then
+	$ROOT/restore_pref $args $interaction $coredirect
+elif [ $execute == "-cydiafix" ]; then
+	$ROOT/cydiafixer $interaction
+elif [ $execute == "-backup-all" ]; then
+	$ROOT/backup_master $args $interaction $coredirect
+elif [ $execute == "-restore-all" ]; then
+	$ROOT/restore_master $args $interaction $coredirect
+elif [ $execute == "-backup-src" ]; then
+	$ROOT/backup_source $args $interaction $coredirect
+elif [ $execute == "-restore-src" ]; then
+	$ROOT/restore_source $args $interaction $coredirect
+elif [ $execute == "-listbackups" ]; then
+	$ROOT/list $args
+elif [ $execute == "-makesnapshot" ]; then
+	$ROOT/makelocalsnapshot $args
+else
+	if []
+fi

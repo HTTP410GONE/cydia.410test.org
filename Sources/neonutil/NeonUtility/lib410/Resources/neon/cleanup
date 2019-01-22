@@ -1,0 +1,19 @@
+#!/bin/bash
+backupStyle=$1
+if [ $backupStyle == "debian" ]; then
+	rm -r /lib410/Resources/neon/temp/deb-backup
+	mkdir /lib410/Resources/neon/temp/deb-backup
+elif [ $backupStyle == "pref" ]; then
+	rm -r /lib410/Resources/neon/temp/pref-backup
+	mkdir /lib410/Resources/neon/temp/pref-backup
+elif [ $backupStyle == "src" ]; then
+	rm -r /lib410/Resources/neon/temp/src-backup
+	mkdir /lib410/Resources/neon/temp/src-backup
+elif [ $backupStyle == "master" ]; then
+	rm -r /lib410/Resources/neon/temp/master-backup
+	mkdir /lib410/Resources/neon/temp/master-backup
+else
+	echo "Error:"
+	echo "Process 'cleanup' returned error."
+	echo $backupStyle "is not a supported backup style."
+fi

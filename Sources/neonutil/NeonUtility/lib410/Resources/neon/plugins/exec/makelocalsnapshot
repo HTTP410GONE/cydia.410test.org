@@ -1,0 +1,58 @@
+#!/bin/bash
+function crashDetect {
+	echo "Crash detected."
+	echo "Process: "
+	snapshotStorage="/private/var/mobile/neonutil_backups/localsnapshots"
+	echo $(<$snapshotStorage/"processIndicator")
+}
+function makeSnapshot {
+	echo "Preparing for backup..."
+	name=$(date '+%d%m%Y%H%M%S');
+	snapshotStorage="/private/var/mobile/neonutil_backups/localsnapshots"
+	inProgressIndicator=$snapshotStorage/"processIndicator"
+	latestSnapshotName=$snapshotStorage/"latestsnapshot"
+	snapshotName=$snapshotStorage/$name
+	if [ -e $inProgressIndicator ]; then
+		crashDetect
+	fi
+	echo "RUN_MAKE_LOCALSNAPSHOT_NAME:"$name > $inProgressIndicator
+	echo "Running Master Backup..."
+	/lib410/Resources/neon/plugins/exec/backup_master $name --nointeraction
+	echo "Storing backup to snapshot storage..."
+	echo "RUN_MOVE_SNAPSHOT_TO_STORAGE_NAME:"$name > $inProgressIndicator
+	mv /private/var/mobile/neonutil_backups/$name.nmasbackup $snapshotStorage/$name.snapshot
+	echo "Loading oldest snapshot..."
+	if [ -e $snapshotStorage/oldestsnapshot ]; then
+		echo "Deleting..."
+		echo "RUN_DELETE_OLDEST_SNAPSHOT_NAME:"$name > $inProgressIndicator
+		rm $snapshotStorage/oldestsnapshot
+	fi
+	echo "Making space for latest snapshot..."
+	echo "RUN_CONVERT_SNAPSHOT_TO_LATEST_NAME:"$name > $inProgressIndicator
+	echo $(<$snapshotStorage/$latestSnapshot) > $snapshotStorage/oldestsnapshot
+	echo "Registering snapshot..."
+	echo "RUN_REGISTER_NAME:"$name > $inProgressIndicator
+	echo $name.snapshot > $latestSnapshotName
+	rm $inProgressIndicator
+	echo "Done."
+}
+
+if [[ $1 ]]; then
+	echo "Making snapshot..."
+	makeSnapshot
+elif [[ $1 == "removesnapshots" ]]; then
+	echo "Cleaning snapshots..."
+	rm -r /private/var/mobile/neonutil_backups/localsnapshots
+	mkdir /private/var/mobile/neonutil_backups/localsnapshots
+	echo "Done."
+else
+	echo "Would you make a snapshot?"
+	read yn
+	if [ $yn == "n" ]; then
+		echo "Aborted."
+		exit
+	elif [ $yn == "y" ]; then
+		echo "Making snapshot..."
+		makeSnapshot
+	fi
+fi

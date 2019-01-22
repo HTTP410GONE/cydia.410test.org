@@ -1,0 +1,92 @@
+#!/bin/bash
+ROOT=/lib410/Resources/neon
+if [ "$(id -u)" != "0" ]; then
+   echo "Not enough permission!"
+   exit
+fi
+echo Neon Utility
+if [ -z $1 ]; then
+	echo "Type 'neon help' to see the syntax."
+	$ROOT/interface
+elif [ $1 == "help" ]; then
+	$ROOT/syntax-core
+elif [ $1 == "backup-deb" ]; then
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -backup-deb $2 --nointeraction $3
+	fi
+elif [ $1 == "restore-deb" ]; then
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -restore-deb $2 --nointeraction --coredirect
+	fi
+elif [ $1 == "backup-pref" ]; then
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -backup-pref $2 --nointeraction --coredirect
+	fi
+elif [ $1 == "restore-pref" ]; then
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -restore-pref $2 --nointeraction --coredirect
+	fi
+elif [ $1 == "backup-src" ]; then
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -backup-src $2 --nointeraction --coredirect
+	fi
+elif [ $1 == "restore-src" ]; then
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -restore-src $2 --nointeraction --coredirect
+	fi
+elif [ $1 == "cydiafix" ]; then
+	$ROOT/querynlink -cydiafix --nointeraction
+elif [ $1 == "list" ]; then
+	$ROOT/querynlink -listbackups --nointeraction
+elif [ $1 == "backup-m" ]; then
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -backup-m $2 --nointeraction --coredirect
+	fi
+elif [ $1 == "restore-m" ]; then
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -restore-m $2 --nointeraction --coredirect
+	fi
+elif [ $1 == "list" ]; then
+	if [ -z $2 ]; then
+		echo "Not enough arguments. Type 'neon help' to see the syntax."
+		exit
+	else
+		$ROOT/querynlink -list-backups $2 --nointeraction -coredirect
+	fi
+elif [ $1 == "menu" ]; then
+	$ROOT/interface
+else
+	if [ -e $ROOT/extload ]; then
+		if [[ $(dpkg -l|grep "com.nvtechnology.neonutil-extload") ]]; then
+			$ROOT/extload $1 $2 $3 $4
+		else
+			echo "Extension loader is not official. Unable to continue."
+		fi
+	else
+		echo "No such arguments."
+	fi
+fi

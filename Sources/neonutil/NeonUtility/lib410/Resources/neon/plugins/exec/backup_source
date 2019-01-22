@@ -1,0 +1,39 @@
+#!/bin/bash
+if [ ! -e /lib410/Resources/neon/temp/src-backup ]; then
+	mkdir /lib410/Resources/neon/temp/src-backup
+fi
+name=$1
+interaction=$2
+if [[ $interaction ]]; then
+	if [[ $name ]]; then
+		echo "1/3: Copying APT Source directory..."
+		cp -r /etc/apt/sources.list.d /lib410/Resources/neon/temp/src-backup
+		echo "2/3: Compressing..."
+		cd /lib410/Resources/neon/temp/
+		zip -rqq $name.nsrcbackup src-backup
+		mv $name.nsrcbackup /private/var/mobile/neonutil_backups/$name.nsrcbackup
+		echo "3/3: Cleaning up..."
+		/lib410/Resources/neon/cleanup src
+		echo "Done."
+	else
+		echo "Error:"
+		echo "Process backup_source returned error."
+		echo "--nointeraction option requires second argument, which is the name of the backup."
+	fi
+else
+	echo "What is the name of the backup?"
+	read name
+	if [[ -z $name ]]; then
+		echo "Name cannot be empty!"
+	else
+		echo "1/3: Copying APT Source directory..."
+		cp -r /etc/apt/sources.list.d /lib410/Resources/neon/temp/src-backup
+		echo "2/3: Compressing..."
+		cd /lib410/Resources/neon/temp/
+		zip -rqq $name.nsrcbackup src-backup
+		mv $name.nsrcbackup /private/var/mobile/neonutil_backups/$name.nsrcbackup
+		echo "3/3: Cleaning up..."
+		/lib410/Resources/neon/cleanup src
+		echo "Done."
+	fi
+fi

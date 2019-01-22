@@ -1,0 +1,25 @@
+<package>
+	<id>com.nvtechnology.neonutil</id>
+	<name>Neon Utility</name>
+	<version>1000</version>
+	<compatibility>
+		<firmware>
+			<miniOS>10.0</miniOS>
+		</firmware>
+	</compatibility>
+	<dependencies>
+		<package>firmware (>= 10.0), com.nvtechnology.libuilder, gawk, zip, unzip</package>
+	</dependencies>
+	<shortDescription>Maintenance Utility</shortDescription>
+	<descriptionlist>
+		<description>Neon Utility. Helps backup debs, preferences, source lists. Cydia fixer is included too! Available to install extensions with Neon Utility Extension Loader.</description>
+		<description>Usage: type "neon help" to see commands, and type "neon" to see user interactive interface.</description>
+	</descriptionlist>
+	<links>
+		<link>
+			<name>@hypertexterr410</name>
+			<url>https://twitter.com/hypertexterr410</url>
+			<iconclass>fa fa-twitter</iconclass>
+		</link>
+	</links>
+</package>

@@ -1,0 +1,46 @@
+#!/bin/bash
+ROOT=/lib410/Resources/neon
+echo "NEON UTILITY INTERFACE"
+echo "----------------------"
+echo "1. Backup Debian Packages"
+echo "2. Backup Preference Files"
+echo "3. Backup Sources List"
+echo "4. Backup all three above"
+echo "5. Restore Debian Packages"
+echo "6. Restore Preference Files"
+echo "7. Restore Sources List"
+echo "8. Restore all three above"
+echo "9. Fix Cydia Crash"
+if [[ ! -z $(dpkg -l | grep "com.nvtechnology.neonutil-extload") ]]; then
+	echo "10. Others (Extensions)"
+fi
+echo ""
+echo -en "Option: "
+read selected
+if [ $selected == "10" ]; then
+	if [[ ! -z $(dpkg -l | grep "com.nvtechnology.neonutil-extload") ]]; then
+		$ROOT/extload
+	else
+		echo "No such option."
+	fi
+elif [ $selected == "1" ]; then
+	$ROOT/sload $selected
+elif [ $selected == "2" ]; then
+	$ROOT/sload $selected
+elif [ $selected == "3" ]; then
+	$ROOT/sload $selected
+elif [ $selected == "4" ]; then
+	$ROOT/sload $selected
+elif [ $selected == "5" ]; then
+	$ROOT/sload $selected
+elif [ $selected == "6" ]; then
+	$ROOT/sload $selected
+elif [ $selected == "7" ]; then
+	$ROOT/sload $selected
+elif [ $selected == "8" ]; then
+	$ROOT/sload $selected
+elif [ $selected == "9" ]; then
+	$ROOT/sload $selected
+else
+	echo "No such option."
+fi
