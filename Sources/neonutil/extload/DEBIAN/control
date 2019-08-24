@@ -4,6 +4,6 @@ Package: com.nvtechnology.neonutil-extload
 Version: 1000
 Author: HTTP410GONE <hysong0129@gmail.com>
 Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
-Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-core, com.nvtechnology.neonutil-interface
+Depends: firmware (>= 10.0), com.nvtechnology.neonutil
 Description: Maintenance utility extension loader.
 Section: Neon Utility

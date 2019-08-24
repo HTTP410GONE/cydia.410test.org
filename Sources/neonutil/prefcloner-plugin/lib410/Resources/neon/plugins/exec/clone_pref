@@ -1,5 +1,0 @@
-#!/bin/bash
-if [ ! -e /lib410/Resources/neon/temp/pref-backup ]; then
-	mkdir /lib410/Resources/neon/temp/pref-backup
-fi
-cp -r /private/var/mobile/Library/Preferences /lib410/Resources/neon/temp/pref-backup

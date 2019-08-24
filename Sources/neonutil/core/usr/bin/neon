@@ -1,2 +1,0 @@
-#!/bin/bash
-/lib410/Resources/neon/drm $1 $2

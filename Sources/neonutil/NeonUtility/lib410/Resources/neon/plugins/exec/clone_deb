@@ -28,7 +28,7 @@ function extract {
 	rm $log
 }
 
-echo "  Found " $total " debs to extract."
+echo "  Found " $total " debs installed."
 if [ $total == 0 ]; then
 	echo "  Error:"
 	echo "  Process clone_deb returned an error."

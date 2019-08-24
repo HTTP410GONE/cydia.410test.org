@@ -10,7 +10,7 @@ if [[ $interaction ]]; then
 			cd /lib410/Resources/neon/temp/deb-backup
 			unzip -qq backup.zip
 			echo "3/6: Installing debs using dpkg..."
-			dpkg -i /lib410/Resources/neon/temp/deb-backup/*.deb
+			find /lib410/Resources/neon/temp/deb-backup/ -name *.deb -exec dpkg -i {} \;
 			echo "4/6: Cleaning up..."
 			/lib410/Resources/neon/cleanup debian
 			echo "5/6: Running UICache..."
@@ -40,7 +40,7 @@ else
 			cd /lib410/Resources/neon/temp/deb-backup
 			unzip -qq backup.zip
 			echo "3/6: Installing debs using dpkg..."
-			dpkg -i /lib410/Resources/neon/temp/deb-backup/*.deb
+			find /lib410/Resources/neon/temp/deb-backup/ -name *.deb -exec dpkg -i {} \;
 			echo "4/6: Cleaning up..."
 			/lib410/Resources/neon/cleanup debian
 			echo "5/6: Running UICache..."

@@ -1,0 +1,9 @@
+Architecture: iphoneos-arm
+Name: [Neon Extension] Backup Filter Editor
+Package: com.nvtechnology.neonutil-filtereditor
+Version: 1000
+Author: HTTP410GONE <hysong0129@gmail.com>
+Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
+Depends: firmware (>= 10.0), com.nvtechnology.libuilder, com.nvtechnology.neonutil-extload, sed
+Description: Able to add or remove package from filtering list
+Section: Neon Utility

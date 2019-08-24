@@ -1,0 +1,37 @@
+#!/bin/bash
+SECONDPARAM=nodata
+echo "Please select one of these parameters: add / rem / def / help"
+read FIRSTPARAM
+if [[ $FIRSTPARAM == "add" ]]; then
+	echo "Please write bundle ID."
+	read SECONDPARAM
+elif [[ $FIRSTPARAM == "rem" ]]; then
+	echo "Please write bundle ID."
+	read SECONDPARAM
+fi
+if [[ $FIRSTPARAM == "help" ]]; then
+	echo "Missing parameter. Usage:"
+	echo "help: Show available parameters"
+	echo "add:  Add package to filter list"
+	echo "rem:  Remove package from filter list"
+	echo "def:  Reset to default"
+elif [[ $FIRSTPARAM == "add" ]]; then
+	if [[ -z $SECONDPARAM ]]; then
+		echo "Missing parameter."
+		echo "write bundle id after the first parameter."
+	else
+		echo $SECONDPARAM>>/lib410/Preferences/neon/debextractor_filterlist
+		echo "Added to filter list."
+	fi
+elif [[ $FIRSTPARAM == "rem" ]]; then
+	if [[ -z $SECONDPARAM ]]; then
+		echo "Missing parameter."
+		echo "write bundle id after the first parameter."
+	else
+		sed -i '' '/d' /lib410/Preferences/neon/debextractor_filterlist
+		echo "Removed from filter list."
+	fi
+elif [[ $FIRSTPARAM == "def" ]]; then
+	echo $(cat /lib410/Preferences/neon/debextractor_filterlist-backup)>/lib410/Preferences/neon/debextractor_filterlist
+	echo "Reset complete."
+fi

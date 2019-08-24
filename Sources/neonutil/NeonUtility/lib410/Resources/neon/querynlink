@@ -27,5 +27,5 @@ elif [ $execute == "-listbackups" ]; then
 elif [ $execute == "-makesnapshot" ]; then
 	$ROOT/makelocalsnapshot $args
 else
-	if []
+	echo "Error thrown from querynlink. Unknown parameter."
 fi

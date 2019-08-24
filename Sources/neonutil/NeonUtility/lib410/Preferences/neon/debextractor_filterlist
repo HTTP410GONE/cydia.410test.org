@@ -1,0 +1,6 @@
+# This is debian package extraction filter list.
+# Add package id to filter.
+# Version and architecture should not be included.
+
+com.rpetrich.rocketbootstrap
+com.ex.substitute
