@@ -28,7 +28,7 @@ if [[ $interaction ]]; then
 		echo "START_COMPRESSING" > $log
 		cd /lib410/Resources/neon/temp
 		zip -rqq $name.zip deb-backup
-		mv /lib410/Resources/neon/temp/$name.zip /private/var/mobile/neonutil_backups/$name.ndebbackup
+		mv /lib410/Resources/neon/temp/$name.zip /private/var/mobile/neonutil_backups/
 		echo "3/3: Cleaning up..."
 		echo "START_CLEANUP" > $log
 		/lib410/Resources/neon/cleanup debian
@@ -63,7 +63,7 @@ else
 		echo "START_COMPRESSING" > $log
 		cd /lib410/Resources/neon/temp
 		zip -rqq $name.zip deb-backup
-		mv $name.zip /private/var/mobile/neonutil_backups/$name.ndebbackup
+		mv $name.zip /private/var/mobile/neonutil_backups/
 		echo "3/3: Cleaning up..."
 		echo "START_CLEANUP" > $log
 		/lib410/Resources/neon/cleanup debian
