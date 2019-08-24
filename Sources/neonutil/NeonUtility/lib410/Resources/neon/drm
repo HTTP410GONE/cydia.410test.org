@@ -1,5 +1,5 @@
 #!/bin/bash
-if [[ -z $(dpkg -l|grep "com.nvtechnology.neonutil") ]]; then
+if [[ -z $(dpkg -l|grep "410.neonutil") ]]; then
 	echo "Failed to verify. Please use the official package."
 	exit
 fi

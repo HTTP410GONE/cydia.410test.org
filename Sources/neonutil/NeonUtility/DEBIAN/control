@@ -1,7 +1,7 @@
 Architecture: iphoneos-arm
 Name: Neon Utility
 Package: 410.neonutil
-Version: 1.0~beta52
+Version: 1.0~beta53
 Author: 410 <hysong0129@gmail.com>
 Maintainer: 410 <hysong0129@gmail.com>
 Depends: firmware (>= 10.0), gawk, zip, unzip, findutils
