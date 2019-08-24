@@ -62,10 +62,12 @@ function usage()
             ;; #endind of the y|Y case
 
           n|N)
+              echo -e ""$bldred"You haven't choosen me to list the packages for you. If so, list it yourself and start again with redeb <package bundle ID> \n  $txtrst"
               exit 1 #ending of the n|N case
               ;;
 
-            *) exit 1
+            *) echo -e ""$bldred"You didn't insert any package id, please rerun the script with ./redeb.sh <package bundle id> or you might list the bundle IDs with this script$txtrst"
+               exit 1
                ;; #ending of the n|N case - 2
         esac
 }
@@ -120,6 +122,8 @@ else
           #echo "Debs Folder created ..."
           prtok
   fi
+  sleep 1
+
 
   #check if the root directory for repackaging already exists
   if [ -d "$ROOTDIR" ]; then
@@ -129,6 +133,7 @@ else
           echo "Creating directory for repackaging..."
           prtok
   fi
+  sleep 1
 
   #check debian folder in root directory
   if [ -d "$ROOTDIR"/DEBIAN/ ]; then
@@ -137,6 +142,7 @@ else
     mkdir $ROOTDIR/DEBIAN/
           echo "DEBIAN folder created"
   fi
+  sleep 1
 
   #create control file for repackaging
   #/usr/bin/dpkg-query -s "$BUNDLEID" | grep -v Status>>"$ROOTDIR"/DEBIAN/control
@@ -155,7 +161,7 @@ else
   #list files related to bundle id into a variable which will be ran in a loop to determine the folder structure and its files which
   #are mandatory for recreating of the DEB package
 
-  echo "Building the whole pakage structure ..."
+  echo "Building the whole pacage structure ..."
 
   SAVEIFS=$IFS
   IFS=$'\n'
@@ -172,9 +178,31 @@ else
       cp -p $i $newfilepath
      fi
   done
+  prtok
   IFS=$SAVEIFS
 
   #Finaly build some fucking deb file
+  echo "Making some last checks if there is everything prepared for \"redeb\""
+  sleep 1
+
+  if [[ -d "$ROOTDIR"/DEBIAN && -f "$ROOTDIR"/DEBIAN/control ]]; then
+  echo  "$ROOTDIR/DEBIAN detected..."
+  sleep 1
+  echo "Control file detected..."
+  fi
+  sleep 2
+
+  echo "Building the package into $DEB"
   #better solution for rebuilding the package
   dpkg-deb -bZgzip $ROOTDIR $DebsFolder
+  prtok
+
+  echo "Checking results..."
+  if [[ -f "$DebsFolder"/"$DEB" && -d "$ROOTDIR" ]];then
+    echo "$DEB is created, now cleaning the temp files..."
+  #  mv $DEB $DebsFolder/$DEB
+    rm -r $ROOTDIR
+  fi
+  prtok
+  echo "Your new repackaged DEB file is located at $DebsFolder/$DEB"
 fi

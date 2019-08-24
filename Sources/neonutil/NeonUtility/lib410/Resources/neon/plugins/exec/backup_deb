@@ -27,8 +27,8 @@ if [[ $interaction ]]; then
 		echo "2/3: Compressing..."
 		echo "START_COMPRESSING" > $log
 		cd /lib410/Resources/neon/temp
-		zip -rqq $name.ndebbackup deb-backup
-		mv $name.ndebbackup /private/var/mobile/neonutil_backups/$name.ndebbackup
+		zip -rqq $name.zip deb-backup
+		mv /lib410/Resources/neon/temp/$name.zip /private/var/mobile/neonutil_backups/$name.ndebbackup
 		echo "3/3: Cleaning up..."
 		echo "START_CLEANUP" > $log
 		/lib410/Resources/neon/cleanup debian
@@ -46,7 +46,7 @@ else
 		echo "Name cannot be empty!"
 	else
 		echo "START_EXTRACTION" > $log
-		echo "1/4: Extracting DEBs..."
+		echo "1/3: Extracting DEBs..."
 		if [[ $override ]]; then
 			echo "START_EXTRACTION_LIMIT_OVERRIDE" > $log
 			echo "  !!Override limitation detected. This may cause reboot!!"
@@ -59,15 +59,12 @@ else
 			echo "Backup aborted."
 			exit
 		fi
-		echo "2/4: Filtering..."
-		echo "START_FILTERING" > $log
-		/lib410/Resources/neon/plugins/exec/filter_deb
-		echo "3/4: Compressing..."
+		echo "2/3: Compressing..."
 		echo "START_COMPRESSING" > $log
 		cd /lib410/Resources/neon/temp
 		zip -rqq $name.ndebbackup deb-backup
 		mv $name.ndebbackup /private/var/mobile/neonutil_backups/$name.ndebbackup
-		echo "4/4: Cleaning up..."
+		echo "3/3: Cleaning up..."
 		echo "START_CLEANUP" > $log
 		/lib410/Resources/neon/cleanup debian
 		echo "Done!"

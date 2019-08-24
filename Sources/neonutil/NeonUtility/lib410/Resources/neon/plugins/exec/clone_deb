@@ -25,6 +25,7 @@ function extract {
 	done
 	echo "EXTRACTION_COMPLETE">$log
 	echo "  Extraction: ["$total"/"$total"]"
+	echo "  Extraction complete."
 	rm $log
 }
 
