@@ -1,10 +1,10 @@
 Architecture: iphoneos-arm
 Name: Neon Utility
-Package: com.nvtechnology.neonutil
-Version: 1000
-Author: HTTP410GONE <hysong0129@gmail.com>
-Maintainer: NVTechnology Korea <nvtechkr@gmail.com>
+Package: 410.neonutil
+Version: 1.0~beta52
+Author: 410 <hysong0129@gmail.com>
+Maintainer: 410 <hysong0129@gmail.com>
 Depends: firmware (>= 10.0), gawk, zip, unzip, findutils
 Description: Maintenance utility package
 Conflicts: com.nvtechnology.neonutil-core, com.nvtechnology.neonutil-interface
-Section: Neon Utility
+Section: Utilities
