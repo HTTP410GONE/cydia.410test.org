@@ -1,17 +1,17 @@
 #!/bin/bash
 backupStyle=$1
 if [ $backupStyle == "debian" ]; then
-	rm -r /lib410/Resources/neon/temp/deb-backup
-	mkdir /lib410/Resources/neon/temp/deb-backup
+	rm -r /lib410/Resources/neon/temp
+	mkdir /lib410/Resources/neon/temp
 elif [ $backupStyle == "pref" ]; then
-	rm -r /lib410/Resources/neon/temp/pref-backup
-	mkdir /lib410/Resources/neon/temp/pref-backup
+	rm -r /lib410/Resources/neon/temp
+	mkdir /lib410/Resources/neon/temp
 elif [ $backupStyle == "src" ]; then
-	rm -r /lib410/Resources/neon/temp/src-backup
-	mkdir /lib410/Resources/neon/temp/src-backup
+	rm -r /lib410/Resources/neon/temp
+	mkdir /lib410/Resources/neon/temp
 elif [ $backupStyle == "master" ]; then
-	rm -r /lib410/Resources/neon/temp/master-backup
-	mkdir /lib410/Resources/neon/temp/master-backup
+	rm -r /lib410/Resources/neon/temp
+	mkdir /lib410/Resources/neon/temp
 else
 	echo "Error:"
 	echo "Process 'cleanup' returned error."
