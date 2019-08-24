@@ -62,8 +62,8 @@ else
 		echo "2/3: Compressing..."
 		echo "START_COMPRESSING" > $log
 		cd /lib410/Resources/neon/temp
-		zip -rqq $name.ndebbackup deb-backup
-		mv $name.ndebbackup /private/var/mobile/neonutil_backups/$name.ndebbackup
+		zip -rqq $name.zip deb-backup
+		mv $name.zip /private/var/mobile/neonutil_backups/$name.ndebbackup
 		echo "3/3: Cleaning up..."
 		echo "START_CLEANUP" > $log
 		/lib410/Resources/neon/cleanup debian
